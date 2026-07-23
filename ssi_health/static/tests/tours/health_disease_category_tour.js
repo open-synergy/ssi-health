@@ -208,12 +208,13 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                 trigger: ".modal-footer button.btn-primary",
                 in_modal: true,
             },
+            // ── Flow 5 — Click the Disease Categories breadcrumb to return
+            // to the list (after a delete, the form may show the next
+            // record in the list instead of navigating back on its own)
             {
-                content: "Back on the Disease Categories list",
-                trigger: ".breadcrumb-item.active:contains(Disease Categories)",
-                run: function () {
-                    // Assertion only; do not trigger the default click action.
-                },
+                content: "Click the Disease Categories breadcrumb",
+                trigger:
+                    ".breadcrumb-item.o_back_button a:contains(Disease Categories)",
             },
 
             // ── Post-Condition — The record is permanently removed; list no
