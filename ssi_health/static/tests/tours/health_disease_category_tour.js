@@ -208,6 +208,13 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                 trigger: ".modal-footer button.btn-primary",
                 in_modal: true,
             },
+            {
+                content: "Back on the Disease Categories list",
+                trigger: ".breadcrumb-item.active:contains(Disease Categories)",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
 
             // ── Post-Condition — The record is permanently removed; list no
             // longer shows it
