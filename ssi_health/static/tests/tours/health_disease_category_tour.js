@@ -38,13 +38,13 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
             // ── Flow 3 — Fill in the required fields
             {
                 content: "Fill in Name",
-                trigger: ".o_field_widget[name='name'] input",
+                trigger: ".o_field_widget[name='name']",
                 extra_trigger: ".o_form_view.o_form_editable",
                 run: "text Tour Disease Category",
             },
             {
                 content: "Fill in Code",
-                trigger: ".o_field_widget[name='code'] input",
+                trigger: ".o_field_widget[name='code']",
                 run: "text /",
             },
 
@@ -104,14 +104,27 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                 },
             },
 
-            // ── Flow 3 — Change the required fields (Name, Code, Parent Category)
+            // ── Flow 3 — Click the Edit button
+            {
+                content: "Click the Edit button",
+                trigger: ".o_form_button_edit",
+            },
+            {
+                content: "Form is now editable",
+                trigger: ".o_form_view.o_form_editable",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+
+            // ── Flow 4 — Change the required fields (Name, Code, Parent Category)
             {
                 content: "Change the Name field",
-                trigger: ".o_field_widget[name='name'] input",
+                trigger: ".o_field_widget[name='name']",
                 run: "text TOUR-EDIT-CATEGORY UPDATED",
             },
 
-            // ── Flow 4 — Click Save
+            // ── Flow 5 — Click Save
             {
                 content: "Save the record",
                 trigger: ".o_form_button_save",
@@ -157,7 +170,7 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
             {
                 content: "Select the record to delete",
                 trigger:
-                    ".o_data_row:contains(TOUR-DELETE-CATEGORY) .o_list_record_selector input",
+                    ".o_data_row:contains(TOUR-DELETE-CATEGORY) .o_list_record_selector",
                 extra_trigger: ".o_list_view",
             },
 
@@ -230,14 +243,27 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                 },
             },
 
-            // ── Flow 3 — Toggle the Active field off
+            // ── Flow 3 — Click the Edit button
+            {
+                content: "Click the Edit button",
+                trigger: ".o_form_button_edit",
+            },
+            {
+                content: "Form is now editable",
+                trigger: ".o_form_view.o_form_editable",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+
+            // ── Flow 4 — Toggle the Active field off
             {
                 content: "Toggle the Active field off",
                 trigger: ".o_field_widget[name='active'] input",
                 run: "click",
             },
 
-            // ── Flow 4 — Click Save
+            // ── Flow 5 — Click Save
             {
                 content: "Save the record",
                 trigger: ".o_form_button_save",
@@ -305,14 +331,27 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                 },
             },
 
-            // ── Flow 4 — Toggle the Active field on
+            // ── Flow 4 — Click the Edit button
+            {
+                content: "Click the Edit button",
+                trigger: ".o_form_button_edit",
+            },
+            {
+                content: "Form is now editable",
+                trigger: ".o_form_view.o_form_editable",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+
+            // ── Flow 5 — Toggle the Active field on
             {
                 content: "Toggle the Active field on",
                 trigger: ".o_field_widget[name='active'] input",
                 run: "click",
             },
 
-            // ── Flow 5 — Click Save
+            // ── Flow 6 — Click Save
             {
                 content: "Save the record",
                 trigger: ".o_form_button_save",

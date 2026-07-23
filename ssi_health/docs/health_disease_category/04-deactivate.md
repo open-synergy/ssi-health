@@ -8,8 +8,9 @@
 
 1. Open the **Health > Configuration > Disease Categories** menu.
 2. Open the Disease Category record to deactivate.
-3. Toggle the **Active** field off.
-4. Click **Save**.
+3. Click the **Edit** button.
+4. Toggle the **Active** field off.
+5. Click **Save**.
 
 ## Post-Condition
 
