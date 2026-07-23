@@ -171,7 +171,7 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                 content: "Select the record to delete",
                 trigger:
                     ".o_data_row:contains(TOUR-DELETE-CATEGORY) .o_list_record_selector",
-                extra_trigger: ".o_list_view",
+                extra_trigger: "body:not(.o_ui_blocked):has(.o_list_view)",
             },
 
             // ── Flow 3 — Click Action > Delete
@@ -309,7 +309,7 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
             {
                 content: "Open the Filters menu",
                 trigger: ".o_filter_menu .o_dropdown_toggler_btn",
-                extra_trigger: ".o_list_view",
+                extra_trigger: "body:not(.o_ui_blocked):has(.o_list_view)",
             },
             {
                 content: "Enable the Archived filter",
