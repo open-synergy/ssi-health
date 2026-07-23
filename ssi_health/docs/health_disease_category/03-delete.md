@@ -9,10 +9,11 @@
 ## Flow
 
 1. Open the **Health > Configuration > Disease Categories** menu.
-2. Select one or more records to delete (check the checkbox).
+2. Open the Disease Category record to delete.
 3. Click **Action** > **Delete**.
 4. Click **OK** to confirm.
 
 ## Post-Condition
 
-- The selected Disease Category records are permanently removed from the system.
+- The record is permanently removed from the system.
+- The list view no longer shows the deleted record.

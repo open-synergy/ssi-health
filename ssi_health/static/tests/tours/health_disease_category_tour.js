@@ -166,12 +166,19 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                     '.o_menu_sections [data-menu-xmlid="ssi_health.health_disease_category_menu"]',
             },
 
-            // ── Flow 2 — Select one or more records to delete (check the checkbox)
+            // ── Flow 2 — Open the Disease Category record to delete
             {
-                content: "Select the record to delete",
+                content: "Open the disease category record",
                 trigger:
-                    ".o_data_row:contains(TOUR-DELETE-CATEGORY) .o_list_record_selector",
-                extra_trigger: "body:not(.o_ui_blocked):has(.o_list_view)",
+                    ".o_data_row:contains(TOUR-DELETE-CATEGORY) .o_data_cell:first",
+                extra_trigger: ".o_list_view",
+            },
+            {
+                content: "Form is open",
+                trigger: ".o_form_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
             },
 
             // ── Flow 3 — Click Action > Delete
@@ -191,7 +198,8 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
                 in_modal: true,
             },
 
-            // ── Post-Condition — The selected records are permanently removed
+            // ── Post-Condition — The record is permanently removed; list no
+            // longer shows it
             {
                 content: "Record no longer in the list",
                 trigger:
@@ -309,11 +317,21 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
             {
                 content: "Open the Filters menu",
                 trigger: ".o_filter_menu .o_dropdown_toggler_btn",
-                extra_trigger: "body:not(.o_ui_blocked):has(.o_list_view)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Use the native click() activation instead of the
+                    // synthetic mouse-event sequence: this dropdown is an
+                    // Owl component whose open state must flip via a real
+                    // browser-level click activation.
+                    this.$anchor[0].click();
+                },
             },
             {
                 content: "Enable the Archived filter",
-                trigger: ".o_filter_menu .o_menu_item:contains(Archived)",
+                trigger: ".o_filter_menu .o_menu_item:contains(Archived) a",
+                run: function () {
+                    this.$anchor[0].click();
+                },
             },
 
             // ── Flow 3 — Open the archived Disease Category record to reactivate
