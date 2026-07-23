@@ -12,6 +12,7 @@
     "application": True,
     "depends": [
         "ssi_master_data_mixin",
+        "web_tour",
     ],
     "data": [
         "security/ir_module_category_data.xml",
@@ -30,6 +31,7 @@
         "views/health_disease_views.xml",
         "views/health_allergen_category_views.xml",
         "views/health_allergen_views.xml",
+        "views/assets.xml",
     ],
     "demo": [],
     "contributors": [
