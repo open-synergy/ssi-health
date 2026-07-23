@@ -2,4 +2,5 @@
 # Copyright 2026 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from . import models
+from . import test_health_disease_category
+from . import test_health_disease

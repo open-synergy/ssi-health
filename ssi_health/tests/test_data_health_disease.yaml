@@ -1,0 +1,107 @@
+scenarios:
+  - name: "Create Disease"
+    steps:
+      - step: "Create disease"
+        action: "create"
+        model: "health.disease"
+        save_as: "disease"
+        values:
+          name: "Test Disease"
+          code: "TD"
+      - step: "Assert created"
+        action: "assert"
+        target: "disease"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Disease"
+          code:
+            type: "value"
+            expected: "TD"
+
+  - name: "Edit Disease"
+    steps:
+      - step: "Create disease"
+        action: "create"
+        model: "health.disease"
+        save_as: "disease"
+        values:
+          name: "Original Disease"
+          code: "OD"
+      - step: "Write new name"
+        action: "write"
+        target: "disease"
+        values:
+          name: "Updated Disease"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "disease"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Disease"
+
+  - name: "Delete Disease"
+    steps:
+      - step: "Create disease"
+        action: "create"
+        model: "health.disease"
+        save_as: "disease"
+        values:
+          name: "Delete Me"
+          code: "DELD"
+      - step: "Delete record"
+        action: "unlink"
+        target: "disease"
+      - step: "Verify deleted"
+        action: "search"
+        model: "health.disease"
+        domain:
+          - ["code", "=", "DELD"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Create Disease with Category"
+    steps:
+      - step: "Create disease category"
+        action: "create"
+        model: "health.disease_category"
+        save_as: "category"
+        values:
+          name: "Category For Disease"
+          code: "CFD"
+      - step: "Create disease with category"
+        action: "create"
+        model: "health.disease"
+        save_as: "disease"
+        values:
+          name: "Categorized Disease"
+          code: "CATD"
+          category_id: "REC: category.id"
+      - step: "Assert category relation"
+        action: "assert"
+        target: "disease"
+        asserts:
+          category_id:
+            type: "m2o"
+            expected: "REC: category"
+
+  - name: "Create Disease without Category"
+    steps:
+      - step: "Create disease without category"
+        action: "create"
+        model: "health.disease"
+        save_as: "disease"
+        values:
+          name: "Uncategorized Disease"
+          code: "UNCD"
+      - step: "Assert category is empty"
+        action: "assert"
+        target: "disease"
+        asserts:
+          category_id:
+            type: "value"
+            operator: "is_falsy"

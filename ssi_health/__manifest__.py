@@ -15,7 +15,14 @@
     ],
     "data": [
         "security/ir_module_category_data.xml",
+        "security/res_groups/health_disease_category.xml",
+        "security/res_groups/health_disease.xml",
+        "security/ir_model_access/health_disease_category.xml",
+        "security/ir_model_access/health_disease.xml",
+        "data/health_disease_category_data.xml",
         "menu.xml",
+        "views/health_disease_category_views.xml",
+        "views/health_disease_views.xml",
     ],
     "demo": [],
     "contributors": [
