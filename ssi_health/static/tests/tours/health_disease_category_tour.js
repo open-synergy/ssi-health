@@ -188,7 +188,7 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
             },
             {
                 content: "Click Delete",
-                trigger: ".o_menu_item:contains(Delete)",
+                trigger: ".o_menu_item:contains(Delete) a",
             },
 
             // ── Flow 4 — Click OK to confirm
@@ -315,9 +315,15 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
 
             // ── Flow 2 — Enable the Archived filter in the search bar
             {
+                content: "Wait for the list data to finish loading",
+                trigger: ".o_list_view .o_data_row",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
                 content: "Open the Filters menu",
                 trigger: ".o_filter_menu .o_dropdown_toggler_btn",
-                extra_trigger: ".o_list_view",
                 run: function () {
                     // Use the native click() activation instead of the
                     // synthetic mouse-event sequence: this dropdown is an
