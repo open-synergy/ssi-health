@@ -1,0 +1,65 @@
+scenarios:
+  - name: "Create Allergen Category"
+    steps:
+      - step: "Create allergen category"
+        action: "create"
+        model: "health.allergen_category"
+        save_as: "category"
+        values:
+          name: "Test Allergen Category"
+          code: "TAC"
+      - step: "Assert created"
+        action: "assert"
+        target: "category"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Allergen Category"
+          code:
+            type: "value"
+            expected: "TAC"
+
+  - name: "Edit Allergen Category"
+    steps:
+      - step: "Create allergen category"
+        action: "create"
+        model: "health.allergen_category"
+        save_as: "category"
+        values:
+          name: "Original Category"
+          code: "OAC"
+      - step: "Write new name"
+        action: "write"
+        target: "category"
+        values:
+          name: "Updated Category"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "category"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Category"
+
+  - name: "Delete Allergen Category"
+    steps:
+      - step: "Create allergen category"
+        action: "create"
+        model: "health.allergen_category"
+        save_as: "category"
+        values:
+          name: "Delete Me"
+          code: "DELAC"
+      - step: "Delete record"
+        action: "unlink"
+        target: "category"
+      - step: "Verify deleted"
+        action: "search"
+        model: "health.allergen_category"
+        domain:
+          - ["code", "=", "DELAC"]
+        save_as: "result"
+        expect_count: 0

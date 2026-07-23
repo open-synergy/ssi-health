@@ -4,3 +4,5 @@
 
 from . import health_disease_category
 from . import health_disease
+from . import health_allergen_category
+from . import health_allergen
