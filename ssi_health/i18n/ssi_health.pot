@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_health
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_health
+#: model:ir.ui.menu,name:ssi_health.menu_health_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: ssi_health
+#: model:ir.module.category,name:ssi_health.health_module_category
+#: model:ir.ui.menu,name:ssi_health.menu_health
+msgid "Health"
+msgstr ""
+
+#. module: ssi_health
+#: model:ir.module.category,name:ssi_health.health_configurator_module_category
+msgid "Health - Configurator"
+msgstr ""
+
+#. module: ssi_health
+#: model:ir.module.category,name:ssi_health.health_data_ownership_module_category
+msgid "Health - Data Ownership"
+msgstr ""
+
+#. module: ssi_health
+#: model:ir.module.category,name:ssi_health.health_workflow_module_category
+msgid "Health - Workflow"
+msgstr ""
