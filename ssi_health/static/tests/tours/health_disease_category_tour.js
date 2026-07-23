@@ -188,7 +188,18 @@ odoo.define("ssi_health.health_disease_category_tour", function (require) {
             },
             {
                 content: "Click Delete",
-                trigger: ".o_menu_item:contains(Delete) a",
+                trigger: ".o_cp_action_menus .o_menu_item a",
+                run: function () {
+                    // Match the item by its exact label instead of a
+                    // substring :contains() selector, so an unrelated item
+                    // (e.g. "Archive") can never be picked by mistake.
+                    var $delete = $(".o_cp_action_menus .o_menu_item a").filter(
+                        function () {
+                            return $(this).text().trim() === "Delete";
+                        }
+                    );
+                    $delete[0].click();
+                },
             },
 
             // ── Flow 4 — Click OK to confirm
