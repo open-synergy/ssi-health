@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="dsm5_neurodevelopmental" model="health.disease_category">
+        <field name="name">Neurodevelopmental Disorders</field>
+        <field name="code">DSM-ND</field>
+    </record>
+
+    <record id="dsm5_schizophrenia_spectrum" model="health.disease_category">
+        <field name="name">Schizophrenia Spectrum and Other Psychotic Disorders</field>
+        <field name="code">DSM-SSP</field>
+    </record>
+
+    <record id="dsm5_bipolar" model="health.disease_category">
+        <field name="name">Bipolar and Related Disorders</field>
+        <field name="code">DSM-BIP</field>
+    </record>
+
+    <record id="dsm5_depressive" model="health.disease_category">
+        <field name="name">Depressive Disorders</field>
+        <field name="code">DSM-DEP</field>
+    </record>
+
+    <record id="dsm5_anxiety" model="health.disease_category">
+        <field name="name">Anxiety Disorders</field>
+        <field name="code">DSM-ANX</field>
+    </record>
+
+    <record id="dsm5_obsessive_compulsive" model="health.disease_category">
+        <field name="name">Obsessive-Compulsive and Related Disorders</field>
+        <field name="code">DSM-OCD</field>
+    </record>
+
+    <record id="dsm5_trauma_stressor" model="health.disease_category">
+        <field name="name">Trauma- and Stressor-Related Disorders</field>
+        <field name="code">DSM-TSR</field>
+    </record>
+
+    <record id="dsm5_dissociative" model="health.disease_category">
+        <field name="name">Dissociative Disorders</field>
+        <field name="code">DSM-DIS</field>
+    </record>
+
+    <record id="dsm5_somatic_symptom" model="health.disease_category">
+        <field name="name">Somatic Symptom and Related Disorders</field>
+        <field name="code">DSM-SSD</field>
+    </record>
+
+    <record id="dsm5_feeding_eating" model="health.disease_category">
+        <field name="name">Feeding and Eating Disorders</field>
+        <field name="code">DSM-FED</field>
+    </record>
+
+    <record id="dsm5_elimination" model="health.disease_category">
+        <field name="name">Elimination Disorders</field>
+        <field name="code">DSM-ELM</field>
+    </record>
+
+    <record id="dsm5_sleep_wake" model="health.disease_category">
+        <field name="name">Sleep-Wake Disorders</field>
+        <field name="code">DSM-SLW</field>
+    </record>
+
+    <record id="dsm5_sexual_dysfunctions" model="health.disease_category">
+        <field name="name">Sexual Dysfunctions</field>
+        <field name="code">DSM-SXD</field>
+    </record>
+
+    <record id="dsm5_gender_dysphoria" model="health.disease_category">
+        <field name="name">Gender Dysphoria</field>
+        <field name="code">DSM-GD</field>
+    </record>
+
+    <record id="dsm5_disruptive_conduct" model="health.disease_category">
+        <field name="name">Disruptive, Impulse-Control, and Conduct Disorders</field>
+        <field name="code">DSM-DIC</field>
+    </record>
+
+    <record id="dsm5_substance_related" model="health.disease_category">
+        <field name="name">Substance-Related and Addictive Disorders</field>
+        <field name="code">DSM-SUB</field>
+    </record>
+
+    <record id="dsm5_neurocognitive" model="health.disease_category">
+        <field name="name">Neurocognitive Disorders</field>
+        <field name="code">DSM-NCD</field>
+    </record>
+
+    <record id="dsm5_personality" model="health.disease_category">
+        <field name="name">Personality Disorders</field>
+        <field name="code">DSM-PD</field>
+    </record>
+
+    <record id="dsm5_paraphilic" model="health.disease_category">
+        <field name="name">Paraphilic Disorders</field>
+        <field name="code">DSM-PAR</field>
+    </record>
+
+    <record id="dsm5_other_mental" model="health.disease_category">
+        <field name="name">Other Mental Disorders</field>
+        <field name="code">DSM-OMD</field>
+    </record>
+</odoo>

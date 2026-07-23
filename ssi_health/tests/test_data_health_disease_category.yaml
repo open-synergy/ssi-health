@@ -1,0 +1,90 @@
+scenarios:
+  - name: "Create Disease Category"
+    steps:
+      - step: "Create disease category"
+        action: "create"
+        model: "health.disease_category"
+        save_as: "category"
+        values:
+          name: "Test Disease Category"
+          code: "TDC"
+      - step: "Assert created"
+        action: "assert"
+        target: "category"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Disease Category"
+          code:
+            type: "value"
+            expected: "TDC"
+
+  - name: "Edit Disease Category"
+    steps:
+      - step: "Create disease category"
+        action: "create"
+        model: "health.disease_category"
+        save_as: "category"
+        values:
+          name: "Original Category"
+          code: "OC"
+      - step: "Write new name"
+        action: "write"
+        target: "category"
+        values:
+          name: "Updated Category"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "category"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Category"
+
+  - name: "Delete Disease Category"
+    steps:
+      - step: "Create disease category"
+        action: "create"
+        model: "health.disease_category"
+        save_as: "category"
+        values:
+          name: "Delete Me"
+          code: "DELC"
+      - step: "Delete record"
+        action: "unlink"
+        target: "category"
+      - step: "Verify deleted"
+        action: "search"
+        model: "health.disease_category"
+        domain:
+          - ["code", "=", "DELC"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Disease Category Hierarchy"
+    steps:
+      - step: "Create parent category"
+        action: "create"
+        model: "health.disease_category"
+        save_as: "parent"
+        values:
+          name: "Parent Category"
+          code: "PARC"
+      - step: "Create child category"
+        action: "create"
+        model: "health.disease_category"
+        save_as: "child"
+        values:
+          name: "Child Category"
+          code: "CHLC"
+          parent_id: "REC: parent.id"
+      - step: "Assert parent relation"
+        action: "assert"
+        target: "child"
+        asserts:
+          parent_id:
+            type: "m2o"
+            expected: "REC: parent"

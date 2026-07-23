@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="allergen_category_food" model="health.allergen_category">
+        <field name="name">Food</field>
+        <field name="code">FOOD</field>
+    </record>
+
+    <record id="allergen_category_drug" model="health.allergen_category">
+        <field name="name">Drug</field>
+        <field name="code">DRUG</field>
+    </record>
+
+    <record id="allergen_category_environmental" model="health.allergen_category">
+        <field name="name">Environmental</field>
+        <field name="code">ENV</field>
+    </record>
+
+    <record id="allergen_category_insect" model="health.allergen_category">
+        <field name="name">Insect</field>
+        <field name="code">INSECT</field>
+    </record>
+
+    <record id="allergen_category_latex" model="health.allergen_category">
+        <field name="name">Latex</field>
+        <field name="code">LATEX</field>
+    </record>
+
+    <record id="allergen_category_contact" model="health.allergen_category">
+        <field name="name">Contact</field>
+        <field name="code">CONTACT</field>
+    </record>
+
+    <record id="allergen_category_other" model="health.allergen_category">
+        <field name="name">Other</field>
+        <field name="code">OTHER</field>
+    </record>
+</odoo>

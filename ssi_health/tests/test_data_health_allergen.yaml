@@ -1,0 +1,107 @@
+scenarios:
+  - name: "Create Allergen"
+    steps:
+      - step: "Create allergen"
+        action: "create"
+        model: "health.allergen"
+        save_as: "allergen"
+        values:
+          name: "Test Allergen"
+          code: "TA"
+      - step: "Assert created"
+        action: "assert"
+        target: "allergen"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Allergen"
+          code:
+            type: "value"
+            expected: "TA"
+
+  - name: "Edit Allergen"
+    steps:
+      - step: "Create allergen"
+        action: "create"
+        model: "health.allergen"
+        save_as: "allergen"
+        values:
+          name: "Original Allergen"
+          code: "OA"
+      - step: "Write new name"
+        action: "write"
+        target: "allergen"
+        values:
+          name: "Updated Allergen"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "allergen"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Allergen"
+
+  - name: "Delete Allergen"
+    steps:
+      - step: "Create allergen"
+        action: "create"
+        model: "health.allergen"
+        save_as: "allergen"
+        values:
+          name: "Delete Me"
+          code: "DELA"
+      - step: "Delete record"
+        action: "unlink"
+        target: "allergen"
+      - step: "Verify deleted"
+        action: "search"
+        model: "health.allergen"
+        domain:
+          - ["code", "=", "DELA"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Create Allergen with Category"
+    steps:
+      - step: "Create allergen category"
+        action: "create"
+        model: "health.allergen_category"
+        save_as: "category"
+        values:
+          name: "Category For Allergen"
+          code: "CFA"
+      - step: "Create allergen with category"
+        action: "create"
+        model: "health.allergen"
+        save_as: "allergen"
+        values:
+          name: "Categorized Allergen"
+          code: "CATA"
+          category_id: "REC: category.id"
+      - step: "Assert category relation"
+        action: "assert"
+        target: "allergen"
+        asserts:
+          category_id:
+            type: "m2o"
+            expected: "REC: category"
+
+  - name: "Create Allergen without Category"
+    steps:
+      - step: "Create allergen without category"
+        action: "create"
+        model: "health.allergen"
+        save_as: "allergen"
+        values:
+          name: "Uncategorized Allergen"
+          code: "UNCA"
+      - step: "Assert category is empty"
+        action: "assert"
+        target: "allergen"
+        asserts:
+          category_id:
+            type: "value"
+            operator: "is_falsy"
