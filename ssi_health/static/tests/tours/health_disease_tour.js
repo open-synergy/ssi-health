@@ -27,6 +27,19 @@ odoo.define("ssi_health.health_disease_tour", function (require) {
                 trigger:
                     '.o_menu_sections [data-menu-xmlid="ssi_health.health_disease_menu"]',
             },
+            {
+                // Guard: opening the Health app lands on the FIRST configuration
+                // menu (Disease Categories), so the Diseases action is still
+                // loading right after the menu click. Wait for its breadcrumb
+                // before touching anything, otherwise the next step would act on
+                // the Disease Categories list that is still on screen.
+                content: "Diseases list is displayed",
+                trigger: ".o_control_panel .breadcrumb-item.active:contains(Diseases)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
 
             // ── Flow 2 — Click the New button
             {
@@ -113,6 +126,19 @@ odoo.define("ssi_health.health_disease_tour", function (require) {
                 trigger:
                     '.o_menu_sections [data-menu-xmlid="ssi_health.health_disease_menu"]',
             },
+            {
+                // Guard: opening the Health app lands on the FIRST configuration
+                // menu (Disease Categories), so the Diseases action is still
+                // loading right after the menu click. Wait for its breadcrumb
+                // before touching anything, otherwise the next step would act on
+                // the Disease Categories list that is still on screen.
+                content: "Diseases list is displayed",
+                trigger: ".o_control_panel .breadcrumb-item.active:contains(Diseases)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
 
             // ── Flow 2 — Find and open the Disease record to edit
             {
@@ -188,6 +214,19 @@ odoo.define("ssi_health.health_disease_tour", function (require) {
                 content: "Open the Diseases menu",
                 trigger:
                     '.o_menu_sections [data-menu-xmlid="ssi_health.health_disease_menu"]',
+            },
+            {
+                // Guard: opening the Health app lands on the FIRST configuration
+                // menu (Disease Categories), so the Diseases action is still
+                // loading right after the menu click. Wait for its breadcrumb
+                // before touching anything, otherwise the next step would act on
+                // the Disease Categories list that is still on screen.
+                content: "Diseases list is displayed",
+                trigger: ".o_control_panel .breadcrumb-item.active:contains(Diseases)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
             },
 
             // ── Flow 2 — Open the Disease record to delete
@@ -277,6 +316,19 @@ odoo.define("ssi_health.health_disease_tour", function (require) {
                 trigger:
                     '.o_menu_sections [data-menu-xmlid="ssi_health.health_disease_menu"]',
             },
+            {
+                // Guard: opening the Health app lands on the FIRST configuration
+                // menu (Disease Categories), so the Diseases action is still
+                // loading right after the menu click. Wait for its breadcrumb
+                // before touching anything, otherwise the next step would act on
+                // the Disease Categories list that is still on screen.
+                content: "Diseases list is displayed",
+                trigger: ".o_control_panel .breadcrumb-item.active:contains(Diseases)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
 
             // ── Flow 2 — Open the Disease record to deactivate
             {
@@ -353,6 +405,19 @@ odoo.define("ssi_health.health_disease_tour", function (require) {
                 content: "Open the Diseases menu",
                 trigger:
                     '.o_menu_sections [data-menu-xmlid="ssi_health.health_disease_menu"]',
+            },
+            {
+                // Guard: opening the Health app lands on the FIRST configuration
+                // menu (Disease Categories), so the Diseases action is still
+                // loading right after the menu click. Wait for its breadcrumb
+                // before touching anything, otherwise the next step would act on
+                // the Disease Categories list that is still on screen.
+                content: "Diseases list is displayed",
+                trigger: ".o_control_panel .breadcrumb-item.active:contains(Diseases)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
             },
 
             // ── Flow 2 — Enable the Archived filter in the search bar
