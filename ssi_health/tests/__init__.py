@@ -7,3 +7,4 @@ from . import test_health_disease
 from . import test_health_allergen_category
 from . import test_health_allergen
 from . import test_ui_health_disease_category
+from . import test_ui_health_disease

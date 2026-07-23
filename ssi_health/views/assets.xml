@@ -13,6 +13,10 @@
                 type="text/javascript"
                 src="/ssi_health/static/tests/tours/health_disease_category_tour.js"
             />
+            <script
+                type="text/javascript"
+                src="/ssi_health/static/tests/tours/health_disease_tour.js"
+            />
         </xpath>
     </template>
 </odoo>

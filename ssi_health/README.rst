@@ -22,6 +22,15 @@ Disease Category
 * `Deactivate Disease Category <docs/health_disease_category/04-deactivate.html>`_
 * `Activate Disease Category <docs/health_disease_category/05-activate.html>`_
 
+Disease
+--------
+
+* `Create Disease <docs/health_disease/01-create.html>`_
+* `Edit Disease <docs/health_disease/02-edit.html>`_
+* `Delete Disease <docs/health_disease/03-delete.html>`_
+* `Deactivate Disease <docs/health_disease/04-deactivate.html>`_
+* `Activate Disease <docs/health_disease/05-activate.html>`_
+
 
 Installation
 ============
