@@ -40,6 +40,15 @@ Allergen Category
 * `Deactivate Allergen Category <docs/health_allergen_category/04-deactivate.html>`_
 * `Activate Allergen Category <docs/health_allergen_category/05-activate.html>`_
 
+Allergen
+---------
+
+* `Create Allergen <docs/health_allergen/01-create.html>`_
+* `Edit Allergen <docs/health_allergen/02-edit.html>`_
+* `Delete Allergen <docs/health_allergen/03-delete.html>`_
+* `Deactivate Allergen <docs/health_allergen/04-deactivate.html>`_
+* `Activate Allergen <docs/health_allergen/05-activate.html>`_
+
 
 Installation
 ============

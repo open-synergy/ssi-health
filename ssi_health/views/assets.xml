@@ -21,6 +21,10 @@
                 type="text/javascript"
                 src="/ssi_health/static/tests/tours/health_allergen_category_tour.js"
             />
+            <script
+                type="text/javascript"
+                src="/ssi_health/static/tests/tours/health_allergen_tour.js"
+            />
         </xpath>
     </template>
 </odoo>
