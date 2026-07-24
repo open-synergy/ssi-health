@@ -19,6 +19,39 @@ msgid "Abstract Class for Partner Body Measurement"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_allergy__note
+msgid "Additional information about this allergy."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_disease_history__note
+msgid "Additional information about this disease history."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__allergen_id
+msgid "Allergen"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_allergy__allergen_id
+msgid "Allergen the contact is allergic to."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__allergy_ids
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__allergy_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Allergies"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__allergy_ids
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__allergy_ids
+msgid "Allergies recorded for this contact."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
 msgid "Body Measurements"
 msgstr ""
@@ -26,6 +59,16 @@ msgstr ""
 #. module: ssi_partner_health
 #: model:ir.model,name:ssi_partner_health.model_res_partner
 msgid "Contact"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_allergy__partner_id
+msgid "Contact this allergy belongs to."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_disease_history__partner_id
+msgid "Contact this disease history belongs to."
 msgstr ""
 
 #. module: ssi_partner_health
@@ -44,6 +87,8 @@ msgid "Contact this weight measurement belongs to."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__create_uid
@@ -51,6 +96,8 @@ msgid "Created by"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__create_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__create_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__create_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__create_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__create_date
@@ -66,6 +113,32 @@ msgid "Date"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__date_diagnosed
+msgid "Date Diagnosed"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__date_recovered
+msgid "Date Recovered"
+msgstr ""
+
+#. module: ssi_partner_health
+#: code:addons/ssi_partner_health/models/partner_disease_history.py:0
+#, python-format
+msgid "Date recovered cannot be earlier than date diagnosed"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_disease_history__date_recovered
+msgid "Date the contact recovered from this disease."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_disease_history__date_diagnosed
+msgid "Date the contact was diagnosed with this disease."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields,help:ssi_partner_health.field_partner_body_measurement_mixin__date
 #: model:ir.model.fields,help:ssi_partner_health.field_partner_head_circumference__date
 #: model:ir.model.fields,help:ssi_partner_health.field_partner_height__date
@@ -74,7 +147,32 @@ msgid "Date the measurement was taken."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__disease_id
+msgid "Disease"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__disease_history_ids
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__disease_history_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Disease History"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__disease_history_ids
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__disease_history_ids
+msgid "Disease history recorded for this contact."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_disease_history__disease_id
+msgid "Disease the contact has been diagnosed with."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__display_name
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__display_name
@@ -142,7 +240,9 @@ msgid "Heights"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__id
@@ -151,7 +251,9 @@ msgid "ID"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin____last_update
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight____last_update
@@ -160,6 +262,8 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__write_uid
@@ -167,6 +271,8 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__write_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__write_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__write_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__write_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__write_date
@@ -203,10 +309,44 @@ msgid "Measured value. Must be greater than zero."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_allergy__severity__mild
+msgid "Mild"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_allergy__severity__moderate
+msgid "Moderate"
+msgstr ""
+
+#. module: ssi_partner_health
+#: code:addons/ssi_partner_health/models/partner_allergy.py:0
+#, python-format
+msgid "No duplicate allergen"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__note
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__partner_id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__partner_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__partner_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__partner_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__partner_id
 msgid "Partner"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_allergy
+msgid "Partner Allergy"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_disease_history
+msgid "Partner Disease History"
 msgstr ""
 
 #. module: ssi_partner_health
@@ -222,6 +362,21 @@ msgstr ""
 #. module: ssi_partner_health
 #: model:ir.model,name:ssi_partner_health.model_partner_weight
 msgid "Partner Weight"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_allergy__severity__severe
+msgid "Severe"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__severity
+msgid "Severity"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_allergy__severity
+msgid "Severity of the allergic reaction."
 msgstr ""
 
 #. module: ssi_partner_health
