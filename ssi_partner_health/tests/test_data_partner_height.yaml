@@ -1,0 +1,89 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Height"
+        is_company: false
+
+scenarios:
+  - name: "Create Height"
+    steps:
+      - step: "Create height"
+        action: "create"
+        model: "partner.height"
+        save_as: "height"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 170.0
+      - step: "Assert created"
+        action: "assert"
+        target: "height"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          value:
+            type: "value"
+            expected: 170.0
+
+  - name: "Edit Height"
+    steps:
+      - step: "Create height"
+        action: "create"
+        model: "partner.height"
+        save_as: "height"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 165.0
+      - step: "Write new value"
+        action: "write"
+        target: "height"
+        values:
+          value: 168.0
+      - step: "Assert value updated"
+        action: "assert"
+        target: "height"
+        asserts:
+          value:
+            type: "value"
+            expected: 168.0
+
+  - name: "Delete Height"
+    steps:
+      - step: "Create height"
+        action: "create"
+        model: "partner.height"
+        save_as: "height"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 199.0
+      - step: "Delete record"
+        action: "unlink"
+        target: "height"
+      - step: "Verify deleted"
+        action: "search"
+        model: "partner.height"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+          - ["value", "=", 199.0]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Negative - Zero Value Rejected"
+    steps:
+      - step: "Create height with zero value must be rejected"
+        action: "create"
+        model: "partner.height"
+        expect_error:
+          type: "UserError"
+          message_contains: "greater than zero"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 0.0
