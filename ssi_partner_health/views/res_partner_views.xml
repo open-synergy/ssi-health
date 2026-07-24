@@ -39,10 +39,7 @@
                             <field name="value" />
                         </tree>
                     </field>
-                    <separator
-                        name="head_circumference"
-                        string="Head Circumference"
-                    />
+                    <separator name="head_circumference" string="Head Circumference" />
                     <field
                         name="head_circumference_ids"
                         nolabel="1"
