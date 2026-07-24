@@ -31,6 +31,15 @@ Disease
 * `Deactivate Disease <docs/health_disease/04-deactivate.html>`_
 * `Activate Disease <docs/health_disease/05-activate.html>`_
 
+Allergen Category
+------------------
+
+* `Create Allergen Category <docs/health_allergen_category/01-create.html>`_
+* `Edit Allergen Category <docs/health_allergen_category/02-edit.html>`_
+* `Delete Allergen Category <docs/health_allergen_category/03-delete.html>`_
+* `Deactivate Allergen Category <docs/health_allergen_category/04-deactivate.html>`_
+* `Activate Allergen Category <docs/health_allergen_category/05-activate.html>`_
+
 
 Installation
 ============
