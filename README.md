@@ -19,6 +19,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [ssi_health](ssi_health/) | 14.0.1.1.0 |  | Health
+[ssi_partner_health](ssi_partner_health/) | 14.0.1.0.0 |  | Partner Health
 
 [//]: # (end addons)
 

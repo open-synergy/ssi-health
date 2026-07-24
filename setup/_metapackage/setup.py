@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-ssi_health',
+        'odoo14-addon-ssi_partner_health',
     ],
     classifiers=[
         'Programming Language :: Python',
