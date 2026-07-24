@@ -1,0 +1,154 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Allergy"
+        is_company: false
+    - step: "Create second partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner2"
+      values:
+        name: "Test Partner Allergy 2"
+        is_company: false
+    - step: "Create allergen"
+      action: "create"
+      model: "health.allergen"
+      save_as: "allergen"
+      values:
+        name: "Peanut"
+        code: "/"
+
+scenarios:
+  - name: "Create Allergy"
+    steps:
+      - step: "Create allergy"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "moderate"
+      - step: "Assert created"
+        action: "assert"
+        target: "allergy"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          severity:
+            type: "value"
+            expected: "moderate"
+
+  - name: "Edit Allergy Severity"
+    steps:
+      - step: "Create allergy"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Write new severity"
+        action: "write"
+        target: "allergy"
+        values:
+          severity: "severe"
+      - step: "Assert severity updated"
+        action: "assert"
+        target: "allergy"
+        asserts:
+          severity:
+            type: "value"
+            expected: "severe"
+
+  - name: "Delete Allergy"
+    steps:
+      - step: "Create allergy"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Delete record"
+        action: "unlink"
+        target: "allergy"
+      - step: "Verify deleted"
+        action: "search"
+        model: "partner.allergy"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+          - ["allergen_id", "=", "REC: allergen.id"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Default Severity Is Mild"
+    steps:
+      - step: "Create allergy without severity"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+      - step: "Assert default severity"
+        action: "assert"
+        target: "allergy"
+        asserts:
+          severity:
+            type: "value"
+            expected: "mild"
+
+  - name: "Negative - Duplicate Allergen Rejected"
+    steps:
+      - step: "Create first allergy"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Create duplicate allergy must be rejected"
+        action: "create"
+        model: "partner.allergy"
+        expect_error:
+          type: "UserError"
+          message_contains: "No duplicate allergen"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "severe"
+
+  - name: "Positive - Same Allergen Different Partner Allowed"
+    steps:
+      - step: "Create allergy for first partner"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Create allergy for second partner"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy2"
+        values:
+          partner_id: "REC: partner2.id"
+          allergen_id: "REC: allergen.id"
+          severity: "moderate"
+      - step: "Assert both created"
+        action: "assert"
+        target: "allergy2"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"

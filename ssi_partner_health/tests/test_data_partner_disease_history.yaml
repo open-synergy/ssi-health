@@ -1,0 +1,167 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Disease History"
+        is_company: false
+    - step: "Create disease"
+      action: "create"
+      model: "health.disease"
+      save_as: "disease"
+      values:
+        name: "Influenza"
+        code: "/"
+
+scenarios:
+  - name: "Create Disease History"
+    steps:
+      - step: "Create disease history"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-01-01
+          date_recovered: 2024-01-10
+      - step: "Assert created"
+        action: "assert"
+        target: "history"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          date_recovered:
+            type: "value"
+            expected: 2024-01-10
+
+  - name: "Edit Disease History Date Recovered"
+    steps:
+      - step: "Create disease history"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-01-01
+          date_recovered: 2024-01-10
+      - step: "Write new date recovered"
+        action: "write"
+        target: "history"
+        values:
+          date_recovered: 2024-01-15
+      - step: "Assert date recovered updated"
+        action: "assert"
+        target: "history"
+        asserts:
+          date_recovered:
+            type: "value"
+            expected: 2024-01-15
+
+  - name: "Delete Disease History"
+    steps:
+      - step: "Create disease history"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-01-01
+      - step: "Delete record"
+        action: "unlink"
+        target: "history"
+      - step: "Verify deleted"
+        action: "search"
+        model: "partner.disease_history"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+          - ["disease_id", "=", "REC: disease.id"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Negative - Date Recovered Earlier Than Date Diagnosed Rejected"
+    steps:
+      - step: "Create disease history with recovery before diagnosis must be rejected"
+        action: "create"
+        model: "partner.disease_history"
+        expect_error:
+          type: "UserError"
+          message_contains: "earlier than"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-01-10
+          date_recovered: 2024-01-01
+
+  - name: "Positive - Same Date Diagnosed And Recovered Allowed"
+    steps:
+      - step: "Create disease history with equal dates"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-02-01
+          date_recovered: 2024-02-01
+      - step: "Assert created"
+        action: "assert"
+        target: "history"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Positive - Only Date Diagnosed Filled Allowed"
+    steps:
+      - step: "Create disease history without date recovered"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-03-01
+      - step: "Assert created"
+        action: "assert"
+        target: "history"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          date_recovered:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Positive - Relapse Same Disease Recorded Twice Allowed"
+    steps:
+      - step: "Create first episode"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history1"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-01-01
+          date_recovered: 2024-01-10
+      - step: "Create second episode (relapse)"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history2"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-06-01
+          date_recovered: 2024-06-10
+      - step: "Assert both created"
+        action: "assert"
+        target: "history2"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"

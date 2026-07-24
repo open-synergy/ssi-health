@@ -51,6 +51,33 @@
                             <field name="value" />
                         </tree>
                     </field>
+                    <separator name="allergy" string="Allergies" />
+                    <field
+                        name="allergy_ids"
+                        nolabel="1"
+                        colspan="4"
+                        context="{'default_partner_id': active_id}"
+                    >
+                        <tree editable="bottom">
+                            <field name="allergen_id" />
+                            <field name="severity" />
+                            <field name="note" />
+                        </tree>
+                    </field>
+                    <separator name="disease_history" string="Disease History" />
+                    <field
+                        name="disease_history_ids"
+                        nolabel="1"
+                        colspan="4"
+                        context="{'default_partner_id': active_id}"
+                    >
+                        <tree editable="bottom">
+                            <field name="disease_id" />
+                            <field name="date_diagnosed" />
+                            <field name="date_recovered" />
+                            <field name="note" />
+                        </tree>
+                    </field>
                 </page>
             </xpath>
         </field>
