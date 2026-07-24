@@ -18,6 +18,8 @@
         "security/ir_model_access/partner_height.xml",
         "security/ir_model_access/partner_weight.xml",
         "security/ir_model_access/partner_head_circumference.xml",
+        "security/ir_model_access/partner_allergy.xml",
+        "security/ir_model_access/partner_disease_history.xml",
         "views/res_partner_views.xml",
     ],
     "demo": [],

@@ -6,4 +6,6 @@ from . import partner_body_measurement_mixin
 from . import partner_height
 from . import partner_weight
 from . import partner_head_circumference
+from . import partner_allergy
+from . import partner_disease_history
 from . import res_partner

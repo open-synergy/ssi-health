@@ -1,0 +1,60 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Health Detail Cascade"
+        is_company: false
+    - step: "Create allergen"
+      action: "create"
+      model: "health.allergen"
+      save_as: "allergen"
+      values:
+        name: "Shellfish"
+        code: "/"
+    - step: "Create disease"
+      action: "create"
+      model: "health.disease"
+      save_as: "disease"
+      values:
+        name: "Chickenpox"
+        code: "/"
+
+scenarios:
+  - name: "Cascade - Deleting Partner Removes Allergy And Disease History"
+    steps:
+      - step: "Create allergy row"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Create disease history row"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          date_diagnosed: 2024-01-01
+      - step: "Delete partner"
+        action: "unlink"
+        target: "partner"
+      - step: "Verify allergy cascaded"
+        action: "search"
+        model: "partner.allergy"
+        domain:
+          - ["id", "=", "REC: allergy.id"]
+        save_as: "allergy_result"
+        expect_count: 0
+      - step: "Verify disease history cascaded"
+        action: "search"
+        model: "partner.disease_history"
+        domain:
+          - ["id", "=", "REC: history.id"]
+        save_as: "history_result"
+        expect_count: 0

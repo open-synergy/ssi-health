@@ -26,6 +26,18 @@ class ResPartner(models.Model):
         string="Head Circumferences",
         help="Head circumference measurement history of this contact.",
     )
+    allergy_ids = fields.One2many(
+        comodel_name="partner.allergy",
+        inverse_name="partner_id",
+        string="Allergies",
+        help="Allergies recorded for this contact.",
+    )
+    disease_history_ids = fields.One2many(
+        comodel_name="partner.disease_history",
+        inverse_name="partner_id",
+        string="Disease History",
+        help="Disease history recorded for this contact.",
+    )
     height = fields.Float(
         string="Height (cm)",
         compute="_compute_height",

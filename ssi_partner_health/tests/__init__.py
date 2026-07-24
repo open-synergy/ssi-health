@@ -6,3 +6,6 @@ from . import test_partner_height
 from . import test_partner_weight
 from . import test_partner_head_circumference
 from . import test_res_partner_body_measurement
+from . import test_partner_allergy
+from . import test_partner_disease_history
+from . import test_partner_health_detail_cascade
