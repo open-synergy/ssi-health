@@ -1,0 +1,259 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_partner_health
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_body_measurement_mixin
+msgid "Abstract Class for Partner Body Measurement"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Body Measurements"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_head_circumference__partner_id
+msgid "Contact this head circumference measurement belongs to."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_height__partner_id
+msgid "Contact this height measurement belongs to."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_weight__partner_id
+msgid "Contact this weight measurement belongs to."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__create_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__create_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__date
+msgid "Date"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_body_measurement_mixin__date
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_head_circumference__date
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_height__date
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_weight__date
+msgid "Date the measurement was taken."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__display_name
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__display_name
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__display_name
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__display_name
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Head Circumference"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__value
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__head_circumference
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__head_circumference
+msgid "Head Circumference (cm)"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__head_circumference_ids
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__head_circumference_ids
+msgid "Head Circumferences"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__head_circumference_ids
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__head_circumference_ids
+msgid "Head circumference measurement history of this contact."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_head_circumference__value
+msgid ""
+"Head circumference measurement in centimeters. Must be greater than zero."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Height"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__value
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__height
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__height
+msgid "Height (cm)"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__height_ids
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__height_ids
+msgid "Height measurement history of this contact."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_height__value
+msgid "Height measurement in centimeters. Must be greater than zero."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__height_ids
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__height_ids
+msgid "Heights"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin____last_update
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference____last_update
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height____last_update
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight____last_update
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__write_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__write_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__head_circumference
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__head_circumference
+msgid ""
+"Latest recorded head circumference (cm), taken from the most recent entry in"
+" the head circumference history. 0.0 if no measurement is recorded."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__height
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__height
+msgid ""
+"Latest recorded height (cm), taken from the most recent entry in the height "
+"history. 0.0 if no measurement is recorded."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__weight
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__weight
+msgid ""
+"Latest recorded weight (kg), taken from the most recent entry in the weight "
+"history. 0.0 if no measurement is recorded."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_body_measurement_mixin__value
+msgid "Measured value. Must be greater than zero."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__partner_id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__partner_id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_head_circumference
+msgid "Partner Head Circumference"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_height
+msgid "Partner Height"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_weight
+msgid "Partner Weight"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__value
+msgid "Value"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Weight"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__value
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__weight
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__weight
+msgid "Weight (kg)"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__weight_ids
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__weight_ids
+msgid "Weight measurement history of this contact."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_weight__value
+msgid "Weight measurement in kilograms. Must be greater than zero."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__weight_ids
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__weight_ids
+msgid "Weights"
+msgstr ""
