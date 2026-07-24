@@ -1,0 +1,89 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Weight"
+        is_company: false
+
+scenarios:
+  - name: "Create Weight"
+    steps:
+      - step: "Create weight"
+        action: "create"
+        model: "partner.weight"
+        save_as: "weight"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 65.5
+      - step: "Assert created"
+        action: "assert"
+        target: "weight"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          value:
+            type: "value"
+            expected: 65.5
+
+  - name: "Edit Weight"
+    steps:
+      - step: "Create weight"
+        action: "create"
+        model: "partner.weight"
+        save_as: "weight"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 60.0
+      - step: "Write new value"
+        action: "write"
+        target: "weight"
+        values:
+          value: 62.5
+      - step: "Assert value updated"
+        action: "assert"
+        target: "weight"
+        asserts:
+          value:
+            type: "value"
+            expected: 62.5
+
+  - name: "Delete Weight"
+    steps:
+      - step: "Create weight"
+        action: "create"
+        model: "partner.weight"
+        save_as: "weight"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 99.0
+      - step: "Delete record"
+        action: "unlink"
+        target: "weight"
+      - step: "Verify deleted"
+        action: "search"
+        model: "partner.weight"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+          - ["value", "=", 99.0]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Negative - Negative Value Rejected"
+    steps:
+      - step: "Create weight with negative value must be rejected"
+        action: "create"
+        model: "partner.weight"
+        expect_error:
+          type: "UserError"
+          message_contains: "greater than zero"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: -1.0

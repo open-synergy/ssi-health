@@ -1,0 +1,27 @@
+# Copyright 2026 OpenSynergy Indonesia
+# Copyright 2026 PT. Simetri Sinergi Indonesia
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# pylint: disable=C8101
+{
+    "name": "Partner Health",
+    "version": "14.0.1.0.0",
+    "website": "https://simetri-sinergi.id",
+    "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
+    "license": "AGPL-3",
+    "installable": True,
+    "application": True,
+    "depends": [
+        "ssi_partner",
+        "ssi_health",
+    ],
+    "data": [
+        "security/ir_model_access/partner_height.xml",
+        "security/ir_model_access/partner_weight.xml",
+        "security/ir_model_access/partner_head_circumference.xml",
+        "views/res_partner_views.xml",
+    ],
+    "demo": [],
+    "contributors": [
+        "Andhitia Rama <andhitia.r@gmail.com>",
+    ],
+}

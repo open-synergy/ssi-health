@@ -1,0 +1,76 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Head Circumference"
+        is_company: false
+
+scenarios:
+  - name: "Create Head Circumference"
+    steps:
+      - step: "Create head circumference"
+        action: "create"
+        model: "partner.head_circumference"
+        save_as: "head_circumference"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 55.0
+      - step: "Assert created"
+        action: "assert"
+        target: "head_circumference"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          value:
+            type: "value"
+            expected: 55.0
+
+  - name: "Edit Head Circumference"
+    steps:
+      - step: "Create head circumference"
+        action: "create"
+        model: "partner.head_circumference"
+        save_as: "head_circumference"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 50.0
+      - step: "Write new value"
+        action: "write"
+        target: "head_circumference"
+        values:
+          value: 52.0
+      - step: "Assert value updated"
+        action: "assert"
+        target: "head_circumference"
+        asserts:
+          value:
+            type: "value"
+            expected: 52.0
+
+  - name: "Delete Head Circumference"
+    steps:
+      - step: "Create head circumference"
+        action: "create"
+        model: "partner.head_circumference"
+        save_as: "head_circumference"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 59.0
+      - step: "Delete record"
+        action: "unlink"
+        target: "head_circumference"
+      - step: "Verify deleted"
+        action: "search"
+        model: "partner.head_circumference"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+          - ["value", "=", 59.0]
+        save_as: "result"
+        expect_count: 0
