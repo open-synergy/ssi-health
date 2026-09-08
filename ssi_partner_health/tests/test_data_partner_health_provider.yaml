@@ -1,0 +1,173 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Health Provider"
+        is_company: false
+    - step: "Create individual provider"
+      action: "create"
+      model: "res.partner"
+      save_as: "doctor"
+      values:
+        name: "Dr. Test Doctor"
+        is_company: false
+    - step: "Create second individual provider"
+      action: "create"
+      model: "res.partner"
+      save_as: "doctor2"
+      values:
+        name: "Dr. Second Doctor"
+        is_company: false
+    - step: "Create organization provider"
+      action: "create"
+      model: "res.partner"
+      save_as: "facility"
+      values:
+        name: "Test Health Facility"
+        is_company: true
+    - step: "Create provider role"
+      action: "create"
+      model: "health.provider_role"
+      save_as: "role"
+      values:
+        name: "General Practitioner"
+        code: "/"
+        provider_type: "individual"
+
+scenarios:
+  - name: "Positive - Single Individual Provider Becomes Family Doctor"
+    steps:
+      - step: "Add individual provider row"
+        action: "create"
+        model: "partner.health_provider"
+        save_as: "row1"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+          role_id: "REC: role.id"
+      - step: "Assert family doctor set, health facility empty"
+        action: "assert"
+        target: "partner"
+        asserts:
+          family_doctor_id:
+            type: "m2o"
+            expected: "REC: doctor"
+          health_facility_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Positive - Adding Organization Fills Health Facility"
+    steps:
+      - step: "Add individual provider row"
+        action: "create"
+        model: "partner.health_provider"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+      - step: "Add organization provider row"
+        action: "create"
+        model: "partner.health_provider"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: facility.id"
+      - step: "Assert both derived fields filled"
+        action: "assert"
+        target: "partner"
+        asserts:
+          family_doctor_id:
+            type: "m2o"
+            expected: "REC: doctor"
+          health_facility_id:
+            type: "m2o"
+            expected: "REC: facility"
+
+  - name: "Positive - Lower Sequence Wins Regardless Of Creation Order"
+    steps:
+      - step: "Add provider with sequence 20 first"
+        action: "create"
+        model: "partner.health_provider"
+        save_as: "row_seq20"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+          sequence: 20
+      - step: "Add provider with sequence 10 second"
+        action: "create"
+        model: "partner.health_provider"
+        save_as: "row_seq10"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor2.id"
+          sequence: 10
+      - step: "Assert family doctor is the lower-sequence row"
+        action: "assert"
+        target: "partner"
+        asserts:
+          family_doctor_id:
+            type: "m2o"
+            expected: "REC: doctor2"
+      - step: "Raise the winning row's sequence above the other"
+        action: "write"
+        target: "row_seq10"
+        values:
+          sequence: 30
+      - step: "Assert family doctor moves to the other row"
+        action: "assert"
+        target: "partner"
+        asserts:
+          family_doctor_id:
+            type: "m2o"
+            expected: "REC: doctor"
+      - step: "Delete the remaining winning row"
+        action: "unlink"
+        target: "row_seq20"
+      - step: "Assert family doctor is cleared"
+        action: "assert"
+        target: "partner"
+        asserts:
+          family_doctor_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Cascade - Deleting Partner Removes Provider Row"
+    steps:
+      - step: "Add provider row"
+        action: "create"
+        model: "partner.health_provider"
+        save_as: "row"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+      - step: "Delete partner"
+        action: "unlink"
+        target: "partner"
+      - step: "Verify provider row cascaded"
+        action: "search"
+        model: "partner.health_provider"
+        domain:
+          - ["id", "=", "REC: row.id"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Negative - Duplicate Provider Rejected"
+    steps:
+      - step: "Add first provider row"
+        action: "create"
+        model: "partner.health_provider"
+        save_as: "row1"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+      - step: "Add duplicate provider row must be rejected"
+        action: "create"
+        model: "partner.health_provider"
+        expect_error:
+          type: "UserError"
+          message_contains: "No duplicate provider"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+          sequence: 20

@@ -61,6 +61,7 @@
                         <tree editable="bottom">
                             <field name="allergen_id" />
                             <field name="severity" />
+                            <field name="reaction_ids" widget="many2many_tags" />
                             <field name="note" />
                         </tree>
                     </field>
@@ -75,6 +76,47 @@
                             <field name="disease_id" />
                             <field name="date_diagnosed" />
                             <field name="date_recovered" />
+                            <field name="note" />
+                        </tree>
+                    </field>
+                    <separator name="medication" string="Medications" />
+                    <field
+                        name="medication_ids"
+                        nolabel="1"
+                        colspan="4"
+                        context="{'default_partner_id': active_id}"
+                    >
+                        <tree editable="bottom">
+                            <field name="medication_id" />
+                            <field name="dose" />
+                            <field name="frequency" />
+                            <field name="route" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="is_ongoing" />
+                            <field name="disease_history_id" optional="hide" />
+                            <field name="instruction" />
+                        </tree>
+                    </field>
+                    <group name="health_provider_summary" colspan="4">
+                        <field name="family_doctor_id" readonly="1" />
+                        <field name="health_facility_id" readonly="1" />
+                    </group>
+                    <separator name="health_provider" string="Health Providers" />
+                    <field
+                        name="health_provider_ids"
+                        nolabel="1"
+                        colspan="4"
+                        context="{'default_partner_id': active_id}"
+                    >
+                        <tree editable="bottom">
+                            <field name="sequence" widget="handle" />
+                            <field
+                                name="provider_id"
+                                domain="['|', ('category_id', 'child_of', %(ssi_health.res_partner_category_health_practitioner)d), ('category_id', 'child_of', %(ssi_health.res_partner_category_health_facility)d)]"
+                            />
+                            <field name="role_id" />
+                            <field name="date_start" />
                             <field name="note" />
                         </tree>
                     </field>

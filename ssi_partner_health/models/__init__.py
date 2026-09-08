@@ -8,4 +8,6 @@ from . import partner_weight
 from . import partner_head_circumference
 from . import partner_allergy
 from . import partner_disease_history
+from . import partner_medication
+from . import partner_health_provider
 from . import res_partner

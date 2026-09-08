@@ -6,6 +6,12 @@ from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds health-related fields to contacts: body measurement history,
+    allergies, disease history, medications, and health care
+    providers (family doctor / health facility).
+    """
+
     _inherit = "res.partner"
 
     height_ids = fields.One2many(
@@ -37,6 +43,36 @@ class ResPartner(models.Model):
         inverse_name="partner_id",
         string="Disease History",
         help="Disease history recorded for this contact.",
+    )
+    medication_ids = fields.One2many(
+        comodel_name="partner.medication",
+        inverse_name="partner_id",
+        string="Medications",
+        help="Medications recorded for this contact.",
+    )
+    health_provider_ids = fields.One2many(
+        comodel_name="partner.health_provider",
+        inverse_name="partner_id",
+        string="Health Providers",
+        help="Health care providers recorded for this contact.",
+    )
+    family_doctor_id = fields.Many2one(
+        string="Family Doctor",
+        comodel_name="res.partner",
+        compute="_compute_family_doctor_id",
+        store=True,
+        compute_sudo=True,
+        help="Automatically filled: the individual provider with the "
+        "lowest Sequence in Health Providers.",
+    )
+    health_facility_id = fields.Many2one(
+        string="Health Facility",
+        comodel_name="res.partner",
+        compute="_compute_health_facility_id",
+        store=True,
+        compute_sudo=True,
+        help="Automatically filled: the organization provider with "
+        "the lowest Sequence in Health Providers.",
     )
     height = fields.Float(
         string="Height (cm)",
@@ -94,3 +130,43 @@ class ResPartner(models.Model):
                 if record.head_circumference_ids
                 else 0.0
             )
+
+    @api.depends(
+        "health_provider_ids",
+        "health_provider_ids.sequence",
+        "health_provider_ids.provider_id",
+        "health_provider_ids.provider_id.is_company",
+    )
+    def _compute_family_doctor_id(self):
+        """Set the top-ranked individual provider as family doctor.
+
+        :return: nothing; assigns ``family_doctor_id``
+        """
+        for record in self:
+            result = False
+            candidates = record.health_provider_ids.filtered(
+                lambda line: not line.provider_id.is_company
+            ).sorted(key=lambda line: (line.sequence, line.id))
+            if candidates:
+                result = candidates[:1].provider_id
+            record.family_doctor_id = result
+
+    @api.depends(
+        "health_provider_ids",
+        "health_provider_ids.sequence",
+        "health_provider_ids.provider_id",
+        "health_provider_ids.provider_id.is_company",
+    )
+    def _compute_health_facility_id(self):
+        """Set the top-ranked organization provider as facility.
+
+        :return: nothing; assigns ``health_facility_id``
+        """
+        for record in self:
+            result = False
+            candidates = record.health_provider_ids.filtered(
+                lambda line: line.provider_id.is_company
+            ).sorted(key=lambda line: (line.sequence, line.id))
+            if candidates:
+                result = candidates[:1].provider_id
+            record.health_facility_id = result
