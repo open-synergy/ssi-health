@@ -13,7 +13,7 @@
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <data>
-                <xpath expr="//field[@name='active']" position="after">
+                <xpath expr="//field[@name='code']" position="after">
                     <field name="provider_type" />
                 </xpath>
             </data>
