@@ -29,6 +29,16 @@ msgid "Additional information about this disease history."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_health_provider__note
+msgid "Additional information about this provider link."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__instruction
+msgid "Additional instruction for taking this medication."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__allergen_id
 msgid "Allergen"
 msgstr ""
@@ -52,8 +62,41 @@ msgid "Allergies recorded for this contact."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__frequency__prn
+msgid "As needed (PRN)"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__is_ongoing
+msgid "Automatically filled: checked while End Date is empty."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__family_doctor_id
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__family_doctor_id
+msgid ""
+"Automatically filled: the individual provider with the lowest Sequence in "
+"Health Providers."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__health_facility_id
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__health_facility_id
+msgid ""
+"Automatically filled: the organization provider with the lowest Sequence in "
+"Health Providers."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
 msgid "Body Measurements"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_allergy__reaction_ids
+msgid ""
+"Clinical manifestations observed for this allergy. Zero or more may be "
+"recorded."
 msgstr ""
 
 #. module: ssi_partner_health
@@ -77,8 +120,18 @@ msgid "Contact this head circumference measurement belongs to."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_health_provider__partner_id
+msgid "Contact this health provider is linked to."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields,help:ssi_partner_health.field_partner_height__partner_id
 msgid "Contact this height measurement belongs to."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__partner_id
+msgid "Contact this medication belongs to."
 msgstr ""
 
 #. module: ssi_partner_health
@@ -90,7 +143,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__create_uid
 msgid "Created by"
 msgstr ""
@@ -99,7 +154,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__create_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__create_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__create_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__create_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__create_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__create_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__create_date
 msgid "Created on"
 msgstr ""
@@ -134,6 +191,18 @@ msgid "Date the contact recovered from this disease."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__date_start
+msgid "Date the contact started taking this medication."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__date_end
+msgid ""
+"Date the contact stopped taking this medication. Leave empty while the "
+"medication is still ongoing."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields,help:ssi_partner_health.field_partner_disease_history__date_diagnosed
 msgid "Date the contact was diagnosed with this disease."
 msgstr ""
@@ -147,15 +216,42 @@ msgid "Date the measurement was taken."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_health_provider__date_start
+msgid "Date this contact started being served by this provider."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_health_provider__role_id
+msgid ""
+"Descriptive role of this provider, e.g. General Practitioner. Optional, does"
+" not affect ranking."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_health_provider__sequence
+msgid ""
+"Determines ranking among the contact's providers. The top individual "
+"provider becomes the Family Doctor; the top organization provider becomes "
+"the Health Facility."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__disease_id
 msgid "Disease"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__disease_history_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__disease_history_ids
 #: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__disease_history_ids
 #: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
 msgid "Disease History"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__disease_history_id
+msgid ""
+"Disease history entry this medication was prescribed for, if any. Optional."
 msgstr ""
 
 #. module: ssi_partner_health
@@ -174,10 +270,49 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__display_name
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__display_name
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__display_name
 #: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__dose
+msgid "Dose"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__date_end
+msgid "End Date"
+msgstr ""
+
+#. module: ssi_partner_health
+#: code:addons/ssi_partner_health/models/partner_medication.py:0
+#, python-format
+msgid "End date cannot be earlier than start date"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__family_doctor_id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__family_doctor_id
+msgid "Family Doctor"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__frequency__qds
+msgid "Four times a day"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__dose
+msgid "Free-text dose, e.g. '500mg'."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__frequency
+msgid "Frequency"
 msgstr ""
 
 #. module: ssi_partner_health
@@ -211,6 +346,25 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__health_facility_id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__health_facility_id
+msgid "Health Facility"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__health_provider_ids
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__health_provider_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Health Providers"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__health_provider_ids
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__health_provider_ids
+msgid "Health care providers recorded for this contact."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
 msgid "Height"
 msgstr ""
@@ -240,14 +394,41 @@ msgid "Heights"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__frequency
+msgid "How often the medication is taken."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__route
+msgid "How the medication is administered."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__id
 msgid "ID"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__route__inhalation
+msgid "Inhalation"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__route__injection
+msgid "Injection"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__instruction
+msgid "Instruction"
 msgstr ""
 
 #. module: ssi_partner_health
@@ -255,7 +436,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_body_measurement_mixin____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference____last_update
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height____last_update
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight____last_update
 #: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner____last_update
 msgid "Last Modified on"
@@ -265,7 +448,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -274,7 +459,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__write_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__write_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__write_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__write_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__write_date
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__write_date
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -309,6 +496,29 @@ msgid "Measured value. Must be greater than zero."
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__medication_id
+msgid "Medication"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_medication__medication_id
+msgid "Medication the contact is taking."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_partner__medication_ids
+#: model:ir.model.fields,field_description:ssi_partner_health.field_res_users__medication_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner_health.res_partner_view_form
+msgid "Medications"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_res_partner__medication_ids
+#: model:ir.model.fields,help:ssi_partner_health.field_res_users__medication_ids
+msgid "Medications recorded for this contact."
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_allergy__severity__mild
 msgid "Mild"
 msgstr ""
@@ -325,16 +535,46 @@ msgid "No duplicate allergen"
 msgstr ""
 
 #. module: ssi_partner_health
+#: code:addons/ssi_partner_health/models/partner_health_provider.py:0
+#, python-format
+msgid "No duplicate provider"
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__note
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__note
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__note
 msgid "Note"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__frequency__od
+msgid "Once a day"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__is_ongoing
+msgid "Ongoing"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__route__oral
+msgid "Oral"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__frequency__other
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__route__other
+msgid "Other"
 msgstr ""
 
 #. module: ssi_partner_health
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__partner_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_disease_history__partner_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_head_circumference__partner_id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__partner_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_height__partner_id
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__partner_id
 #: model:ir.model.fields,field_description:ssi_partner_health.field_partner_weight__partner_id
 msgid "Partner"
 msgstr ""
@@ -355,13 +595,48 @@ msgid "Partner Head Circumference"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_health_provider
+msgid "Partner Health Provider"
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model,name:ssi_partner_health.model_partner_height
 msgid "Partner Height"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:ir.model,name:ssi_partner_health.model_partner_medication
+msgid "Partner Medication"
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model,name:ssi_partner_health.model_partner_weight
 msgid "Partner Weight"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__provider_id
+msgid "Provider"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_allergy__reaction_ids
+msgid "Reactions"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__role_id
+msgid "Role"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__route
+msgid "Route"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__sequence
+msgid "Sequence"
 msgstr ""
 
 #. module: ssi_partner_health
@@ -377,6 +652,32 @@ msgstr ""
 #. module: ssi_partner_health
 #: model:ir.model.fields,help:ssi_partner_health.field_partner_allergy__severity
 msgid "Severity of the allergic reaction."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_health_provider__date_start
+#: model:ir.model.fields,field_description:ssi_partner_health.field_partner_medication__date_start
+msgid "Start Date"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields,help:ssi_partner_health.field_partner_health_provider__provider_id
+msgid "The health care provider contact (physician or facility)."
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__frequency__tds
+msgid "Three times a day"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__route__topical
+msgid "Topical"
+msgstr ""
+
+#. module: ssi_partner_health
+#: model:ir.model.fields.selection,name:ssi_partner_health.selection__partner_medication__frequency__bd
+msgid "Twice a day"
 msgstr ""
 
 #. module: ssi_partner_health
