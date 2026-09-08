@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="provider_role_general_practitioner" model="health.provider_role">
+        <field name="name">General Practitioner</field>
+        <field name="code">GP</field>
+        <field name="provider_type">individual</field>
+    </record>
+
+    <record id="provider_role_pediatrician" model="health.provider_role">
+        <field name="name">Pediatrician</field>
+        <field name="code">PED</field>
+        <field name="provider_type">individual</field>
+    </record>
+
+    <record id="provider_role_dentist" model="health.provider_role">
+        <field name="name">Dentist</field>
+        <field name="code">DENT</field>
+        <field name="provider_type">individual</field>
+    </record>
+
+    <record id="provider_role_obstetrician" model="health.provider_role">
+        <field name="name">Obstetrician</field>
+        <field name="code">OBGYN</field>
+        <field name="provider_type">individual</field>
+    </record>
+
+    <record id="provider_role_midwife" model="health.provider_role">
+        <field name="name">Midwife</field>
+        <field name="code">MIDWIFE</field>
+        <field name="provider_type">individual</field>
+    </record>
+
+    <record id="provider_role_primary_health_facility" model="health.provider_role">
+        <field name="name">Primary Health Facility</field>
+        <field name="code">FKTP</field>
+        <field name="provider_type">organization</field>
+    </record>
+
+    <record id="provider_role_referral_hospital" model="health.provider_role">
+        <field name="name">Referral Hospital</field>
+        <field name="code">RSRUJUK</field>
+        <field name="provider_type">organization</field>
+    </record>
+</odoo>

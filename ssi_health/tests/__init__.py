@@ -6,7 +6,13 @@ from . import test_health_disease_category
 from . import test_health_disease
 from . import test_health_allergen_category
 from . import test_health_allergen
+from . import test_health_allergen_reaction
+from . import test_health_medication
+from . import test_health_provider_role
 from . import test_ui_health_disease_category
 from . import test_ui_health_disease
 from . import test_ui_health_allergen_category
 from . import test_ui_health_allergen
+from . import test_ui_health_allergen_reaction
+from . import test_ui_health_medication
+from . import test_ui_health_provider_role
