@@ -1,0 +1,179 @@
+scenarios:
+  - name: "Create Health Provider Role"
+    steps:
+      - step: "Create provider role"
+        action: "create"
+        model: "health.provider_role"
+        save_as: "role"
+        values:
+          name: "Test Provider Role"
+          code: "TPR"
+          provider_type: "organization"
+      - step: "Assert created"
+        action: "assert"
+        target: "role"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Provider Role"
+          code:
+            type: "value"
+            expected: "TPR"
+          provider_type:
+            type: "value"
+            expected: "organization"
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Create Health Provider Role Without Provider Type Defaults To Individual"
+    steps:
+      - step: "Create provider role without provider_type"
+        action: "create"
+        model: "health.provider_role"
+        save_as: "role"
+        values:
+          name: "Default Type Role"
+          code: "DTR"
+      - step: "Assert default provider_type"
+        action: "assert"
+        target: "role"
+        asserts:
+          provider_type:
+            type: "value"
+            expected: "individual"
+
+  - name: "Edit Health Provider Role"
+    steps:
+      - step: "Create provider role"
+        action: "create"
+        model: "health.provider_role"
+        save_as: "role"
+        values:
+          name: "Original Role"
+          code: "OPR"
+          provider_type: "individual"
+      - step: "Write new name and provider_type"
+        action: "write"
+        target: "role"
+        values:
+          name: "Updated Role"
+          provider_type: "organization"
+      - step: "Assert updated"
+        action: "assert"
+        target: "role"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Role"
+          provider_type:
+            type: "value"
+            expected: "organization"
+
+  - name: "Archive and Unarchive Health Provider Role"
+    steps:
+      - step: "Create provider role"
+        action: "create"
+        model: "health.provider_role"
+        save_as: "role"
+        values:
+          name: "Archive Role"
+          code: "ARPR"
+      - step: "Archive the record"
+        action: "write"
+        target: "role"
+        values:
+          active: false
+      - step: "Assert archived"
+        action: "assert"
+        target: "role"
+        asserts:
+          active:
+            type: "value"
+            expected: false
+      - step: "Unarchive the record"
+        action: "write"
+        target: "role"
+        values:
+          active: true
+      - step: "Assert unarchived"
+        action: "assert"
+        target: "role"
+        asserts:
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Delete Health Provider Role"
+    steps:
+      - step: "Create provider role"
+        action: "create"
+        model: "health.provider_role"
+        save_as: "role"
+        values:
+          name: "Delete Me"
+          code: "DELPR"
+      - step: "Delete record"
+        action: "unlink"
+        target: "role"
+      - step: "Verify deleted"
+        action: "search"
+        model: "health.provider_role"
+        domain:
+          - ["code", "=", "DELPR"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Access Denied for Non-Group User"
+    steps:
+      - step: "Create plain internal user"
+        action: "create"
+        model: "res.users"
+        save_as: "plain_user"
+        values:
+          name: "Plain Internal User"
+          login: "plain_user_provider_role@example.com"
+          groups_id: [[6, 0, ["REF: base.group_user"]]]
+      - step: "Create provider role as superuser"
+        action: "create"
+        model: "health.provider_role"
+        save_as: "role"
+        values:
+          name: "Protected Role"
+          code: "PROTPR"
+      - step: "Plain user cannot write"
+        action: "write"
+        target: "role"
+        as_user: "plain_user"
+        expect_error:
+          type: "AccessError"
+        values:
+          name: "Hacked"
+
+  - name: "Reference Health Practitioner and Facility Categories"
+    steps:
+      - step: "Get Health Practitioner category ref"
+        action: "ref"
+        xml_id: "ssi_health.res_partner_category_health_practitioner"
+        save_as: "practitioner_category"
+      - step: "Assert Health Practitioner category name"
+        action: "assert"
+        target: "practitioner_category"
+        asserts:
+          name:
+            type: "value"
+            expected: "Health Practitioner"
+      - step: "Get Health Facility category ref"
+        action: "ref"
+        xml_id: "ssi_health.res_partner_category_health_facility"
+        save_as: "facility_category"
+      - step: "Assert Health Facility category name"
+        action: "assert"
+        target: "facility_category"
+        asserts:
+          name:
+            type: "value"
+            expected: "Health Facility"

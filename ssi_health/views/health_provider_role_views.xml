@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="health_provider_role_view_search" model="ir.ui.view">
+        <field name="name">health.provider_role - search</field>
+        <field name="model">health.provider_role</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="provider_type" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="health_provider_role_view_tree" model="ir.ui.view">
+        <field name="name">health.provider_role - tree</field>
+        <field name="model">health.provider_role</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="provider_type" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="health_provider_role_view_form" model="ir.ui.view">
+        <field name="name">health.provider_role - form</field>
+        <field name="model">health.provider_role</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="provider_type" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="health_provider_role_action" model="ir.actions.act_window">
+        <field name="name">Health Provider Roles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">health.provider_role</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="health_provider_role_menu"
+        name="Provider Roles"
+        parent="menu_health_configuration"
+        action="health_provider_role_action"
+        groups="health_provider_role_group"
+        sequence="70"
+    />
+</odoo>

@@ -6,8 +6,23 @@
 Health
 ======
 
-Health master data foundation: Disease Category, Disease, Allergen Category, and
-Allergen.
+Health master data foundation: Disease Category, Disease, Allergen Category, Allergen,
+Allergen Reaction, Medication, and Health Provider Role.
+
+This module also ships two ``res.partner.category`` markers used to classify contacts
+as health-related: ``ssi_health.res_partner_category_health_practitioner`` (Health
+Practitioner) and ``ssi_health.res_partner_category_health_facility`` (Health
+Facility). Both are root categories with no ``parent_id`` — client deployments are
+free to hang their own sub-categories underneath.
+
+**Usage contract for the two markers.** ``res.partner.category`` is hierarchical:
+consumers **must** reference either marker by its module-prefixed external ID
+(``ssi_health.res_partner_category_health_facility``) and filter with the
+**``child_of``** domain operator — **never** ``=``. Using ``=`` matches only the exact
+root record and silently drops any client sub-category nested underneath it, e.g.::
+
+    domain = [("category_id", "child_of",
+               ref("ssi_health.res_partner_category_health_facility"))]
 
 
 Work Instruction
@@ -48,6 +63,33 @@ Allergen
 * `Delete Allergen <docs/health_allergen/03-delete.html>`_
 * `Deactivate Allergen <docs/health_allergen/04-deactivate.html>`_
 * `Activate Allergen <docs/health_allergen/05-activate.html>`_
+
+Allergen Reaction
+------------------
+
+* `Create Allergen Reaction <docs/health_allergen_reaction/01-create.html>`_
+* `Edit Allergen Reaction <docs/health_allergen_reaction/02-edit.html>`_
+* `Delete Allergen Reaction <docs/health_allergen_reaction/03-delete.html>`_
+* `Deactivate Allergen Reaction <docs/health_allergen_reaction/04-deactivate.html>`_
+* `Activate Allergen Reaction <docs/health_allergen_reaction/05-activate.html>`_
+
+Medication
+-----------
+
+* `Create Medication <docs/health_medication/01-create.html>`_
+* `Edit Medication <docs/health_medication/02-edit.html>`_
+* `Delete Medication <docs/health_medication/03-delete.html>`_
+* `Deactivate Medication <docs/health_medication/04-deactivate.html>`_
+* `Activate Medication <docs/health_medication/05-activate.html>`_
+
+Health Provider Role
+----------------------
+
+* `Create Health Provider Role <docs/health_provider_role/01-create.html>`_
+* `Edit Health Provider Role <docs/health_provider_role/02-edit.html>`_
+* `Delete Health Provider Role <docs/health_provider_role/03-delete.html>`_
+* `Deactivate Health Provider Role <docs/health_provider_role/04-deactivate.html>`_
+* `Activate Health Provider Role <docs/health_provider_role/05-activate.html>`_
 
 
 Installation

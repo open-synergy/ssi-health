@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="allergen_reaction_urticaria" model="health.allergen_reaction">
+        <field name="name">Urticaria</field>
+        <field name="code">URT</field>
+    </record>
+
+    <record id="allergen_reaction_angioedema" model="health.allergen_reaction">
+        <field name="name">Angioedema</field>
+        <field name="code">ANGIO</field>
+    </record>
+
+    <record id="allergen_reaction_anaphylaxis" model="health.allergen_reaction">
+        <field name="name">Anaphylaxis</field>
+        <field name="code">ANA</field>
+    </record>
+
+    <record id="allergen_reaction_rhinitis" model="health.allergen_reaction">
+        <field name="name">Rhinitis</field>
+        <field name="code">RHIN</field>
+    </record>
+
+    <record id="allergen_reaction_bronchospasm" model="health.allergen_reaction">
+        <field name="name">Bronchospasm</field>
+        <field name="code">BRONCH</field>
+    </record>
+
+    <record id="allergen_reaction_nausea_vomiting" model="health.allergen_reaction">
+        <field name="name">Nausea and Vomiting</field>
+        <field name="code">NV</field>
+    </record>
+
+    <record id="allergen_reaction_diarrhea" model="health.allergen_reaction">
+        <field name="name">Diarrhea</field>
+        <field name="code">DIAR</field>
+    </record>
+
+    <record id="allergen_reaction_contact_dermatitis" model="health.allergen_reaction">
+        <field name="name">Contact Dermatitis</field>
+        <field name="code">DERM</field>
+    </record>
+</odoo>

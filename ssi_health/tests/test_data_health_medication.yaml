@@ -1,0 +1,128 @@
+scenarios:
+  - name: "Create Medication"
+    steps:
+      - step: "Create medication"
+        action: "create"
+        model: "health.medication"
+        save_as: "medication"
+        values:
+          name: "Test Medication"
+          code: "TMD"
+      - step: "Assert created"
+        action: "assert"
+        target: "medication"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Medication"
+          code:
+            type: "value"
+            expected: "TMD"
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Edit Medication"
+    steps:
+      - step: "Create medication"
+        action: "create"
+        model: "health.medication"
+        save_as: "medication"
+        values:
+          name: "Original Medication"
+          code: "OMD"
+      - step: "Write new name"
+        action: "write"
+        target: "medication"
+        values:
+          name: "Updated Medication"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "medication"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Medication"
+
+  - name: "Archive and Unarchive Medication"
+    steps:
+      - step: "Create medication"
+        action: "create"
+        model: "health.medication"
+        save_as: "medication"
+        values:
+          name: "Archive Medication"
+          code: "ARMD"
+      - step: "Archive the record"
+        action: "write"
+        target: "medication"
+        values:
+          active: false
+      - step: "Assert archived"
+        action: "assert"
+        target: "medication"
+        asserts:
+          active:
+            type: "value"
+            expected: false
+      - step: "Unarchive the record"
+        action: "write"
+        target: "medication"
+        values:
+          active: true
+      - step: "Assert unarchived"
+        action: "assert"
+        target: "medication"
+        asserts:
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Delete Medication"
+    steps:
+      - step: "Create medication"
+        action: "create"
+        model: "health.medication"
+        save_as: "medication"
+        values:
+          name: "Delete Me"
+          code: "DELMD"
+      - step: "Delete record"
+        action: "unlink"
+        target: "medication"
+      - step: "Verify deleted"
+        action: "search"
+        model: "health.medication"
+        domain:
+          - ["code", "=", "DELMD"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Access Denied for Non-Group User"
+    steps:
+      - step: "Create plain internal user"
+        action: "create"
+        model: "res.users"
+        save_as: "plain_user"
+        values:
+          name: "Plain Internal User"
+          login: "plain_user_medication@example.com"
+          groups_id: [[6, 0, ["REF: base.group_user"]]]
+      - step: "Create medication as superuser"
+        action: "create"
+        model: "health.medication"
+        save_as: "medication"
+        values:
+          name: "Protected Medication"
+          code: "PROTMD"
+      - step: "Plain user cannot write"
+        action: "write"
+        target: "medication"
+        as_user: "plain_user"
+        expect_error:
+          type: "AccessError"
+        values:
+          name: "Hacked"

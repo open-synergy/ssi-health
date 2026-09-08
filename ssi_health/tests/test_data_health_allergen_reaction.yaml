@@ -1,0 +1,128 @@
+scenarios:
+  - name: "Create Allergen Reaction"
+    steps:
+      - step: "Create allergen reaction"
+        action: "create"
+        model: "health.allergen_reaction"
+        save_as: "reaction"
+        values:
+          name: "Test Allergen Reaction"
+          code: "TAR"
+      - step: "Assert created"
+        action: "assert"
+        target: "reaction"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Allergen Reaction"
+          code:
+            type: "value"
+            expected: "TAR"
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Edit Allergen Reaction"
+    steps:
+      - step: "Create allergen reaction"
+        action: "create"
+        model: "health.allergen_reaction"
+        save_as: "reaction"
+        values:
+          name: "Original Reaction"
+          code: "OAR"
+      - step: "Write new name"
+        action: "write"
+        target: "reaction"
+        values:
+          name: "Updated Reaction"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "reaction"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Reaction"
+
+  - name: "Archive and Unarchive Allergen Reaction"
+    steps:
+      - step: "Create allergen reaction"
+        action: "create"
+        model: "health.allergen_reaction"
+        save_as: "reaction"
+        values:
+          name: "Archive Reaction"
+          code: "ARAR"
+      - step: "Archive the record"
+        action: "write"
+        target: "reaction"
+        values:
+          active: false
+      - step: "Assert archived"
+        action: "assert"
+        target: "reaction"
+        asserts:
+          active:
+            type: "value"
+            expected: false
+      - step: "Unarchive the record"
+        action: "write"
+        target: "reaction"
+        values:
+          active: true
+      - step: "Assert unarchived"
+        action: "assert"
+        target: "reaction"
+        asserts:
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Delete Allergen Reaction"
+    steps:
+      - step: "Create allergen reaction"
+        action: "create"
+        model: "health.allergen_reaction"
+        save_as: "reaction"
+        values:
+          name: "Delete Me"
+          code: "DELAR"
+      - step: "Delete record"
+        action: "unlink"
+        target: "reaction"
+      - step: "Verify deleted"
+        action: "search"
+        model: "health.allergen_reaction"
+        domain:
+          - ["code", "=", "DELAR"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Access Denied for Non-Group User"
+    steps:
+      - step: "Create plain internal user"
+        action: "create"
+        model: "res.users"
+        save_as: "plain_user"
+        values:
+          name: "Plain Internal User"
+          login: "plain_user_allergen_reaction@example.com"
+          groups_id: [[6, 0, ["REF: base.group_user"]]]
+      - step: "Create allergen reaction as superuser"
+        action: "create"
+        model: "health.allergen_reaction"
+        save_as: "reaction"
+        values:
+          name: "Protected Reaction"
+          code: "PROTAR"
+      - step: "Plain user cannot write"
+        action: "write"
+        target: "reaction"
+        as_user: "plain_user"
+        expect_error:
+          type: "AccessError"
+        values:
+          name: "Hacked"
