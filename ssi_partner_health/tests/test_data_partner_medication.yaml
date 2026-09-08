@@ -1,0 +1,176 @@
+options:
+  auto_refresh: true
+
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Medication"
+        is_company: false
+    - step: "Create medication"
+      action: "create"
+      model: "health.medication"
+      save_as: "medication"
+      values:
+        name: "Paracetamol"
+        code: "/"
+    - step: "Create disease"
+      action: "create"
+      model: "health.disease"
+      save_as: "disease"
+      values:
+        name: "Hypertension"
+        code: "/"
+    - step: "Create disease history"
+      action: "create"
+      model: "partner.disease_history"
+      save_as: "history"
+      values:
+        partner_id: "REC: partner.id"
+        disease_id: "REC: disease.id"
+        date_diagnosed: 2024-01-01
+
+scenarios:
+  - name: "Positive - Minimum Create Uses Defaults"
+    steps:
+      - step: "Create medication with minimum fields"
+        action: "create"
+        model: "partner.medication"
+        save_as: "medication_row"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          date_start: 2024-02-01
+      - step: "Assert defaults and ongoing"
+        action: "assert"
+        target: "medication_row"
+        asserts:
+          frequency:
+            type: "value"
+            expected: "od"
+          route:
+            type: "value"
+            expected: "oral"
+          is_ongoing:
+            type: "value"
+            expected: true
+
+  - name: "Positive - Setting End Date Stops Ongoing"
+    steps:
+      - step: "Create medication"
+        action: "create"
+        model: "partner.medication"
+        save_as: "medication_row"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          date_start: 2024-02-01
+      - step: "Write end date"
+        action: "write"
+        target: "medication_row"
+        values:
+          date_end: 2024-03-01
+      - step: "Assert no longer ongoing"
+        action: "assert"
+        target: "medication_row"
+        asserts:
+          is_ongoing:
+            type: "value"
+            expected: false
+      - step: "Clear end date again"
+        action: "write"
+        target: "medication_row"
+        values:
+          date_end: false
+      - step: "Assert ongoing again"
+        action: "assert"
+        target: "medication_row"
+        asserts:
+          is_ongoing:
+            type: "value"
+            expected: true
+
+  - name: "Positive - Linked To Disease History"
+    steps:
+      - step: "Create medication linked to disease history"
+        action: "create"
+        model: "partner.medication"
+        save_as: "medication_row"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          disease_history_id: "REC: history.id"
+          date_start: 2024-02-01
+      - step: "Assert disease history link"
+        action: "assert"
+        target: "medication_row"
+        asserts:
+          disease_history_id:
+            type: "m2o"
+            expected: "REC: history"
+
+  - name: "Positive - Same Medication Twice Allowed"
+    steps:
+      - step: "Create first medication row"
+        action: "create"
+        model: "partner.medication"
+        save_as: "medication_row1"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          date_start: 2024-01-01
+          date_end: 2024-01-15
+      - step: "Create second medication row, same medication"
+        action: "create"
+        model: "partner.medication"
+        save_as: "medication_row2"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          date_start: 2024-02-01
+      - step: "Assert both rows exist"
+        action: "search"
+        model: "partner.medication"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+          - ["medication_id", "=", "REC: medication.id"]
+        save_as: "rows"
+        expect_count: 2
+
+  - name: "Cascade - Deleting Partner Removes Medication"
+    steps:
+      - step: "Create medication row"
+        action: "create"
+        model: "partner.medication"
+        save_as: "medication_row"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          date_start: 2024-02-01
+      - step: "Delete partner"
+        action: "unlink"
+        target: "partner"
+      - step: "Verify medication cascaded"
+        action: "search"
+        model: "partner.medication"
+        domain:
+          - ["id", "=", "REC: medication_row.id"]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Negative - End Date Before Start Date Rejected"
+    steps:
+      - step: "Create medication with end before start must be rejected"
+        action: "create"
+        model: "partner.medication"
+        expect_error:
+          type: "UserError"
+          message_contains: "End date cannot be earlier than start date"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          date_start: 2024-02-10
+          date_end: 2024-02-01

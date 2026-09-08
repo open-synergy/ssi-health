@@ -13,6 +13,7 @@
     "depends": [
         "ssi_partner",
         "ssi_health",
+        "web_tour",
     ],
     "data": [
         "security/ir_model_access/partner_height.xml",
@@ -20,7 +21,10 @@
         "security/ir_model_access/partner_head_circumference.xml",
         "security/ir_model_access/partner_allergy.xml",
         "security/ir_model_access/partner_disease_history.xml",
+        "security/ir_model_access/partner_medication.xml",
+        "security/ir_model_access/partner_health_provider.xml",
         "views/res_partner_views.xml",
+        "views/assets.xml",
     ],
     "demo": [],
     "contributors": [

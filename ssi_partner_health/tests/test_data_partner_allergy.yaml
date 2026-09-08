@@ -21,6 +21,27 @@ setup:
       values:
         name: "Peanut"
         code: "/"
+    - step: "Create reaction - hives"
+      action: "create"
+      model: "health.allergen_reaction"
+      save_as: "reaction_hives"
+      values:
+        name: "Hives"
+        code: "/"
+    - step: "Create reaction - swelling"
+      action: "create"
+      model: "health.allergen_reaction"
+      save_as: "reaction_swelling"
+      values:
+        name: "Swelling"
+        code: "/"
+    - step: "Create reaction - anaphylaxis"
+      action: "create"
+      model: "health.allergen_reaction"
+      save_as: "reaction_anaphylaxis"
+      values:
+        name: "Anaphylaxis"
+        code: "/"
 
 scenarios:
   - name: "Create Allergy"
@@ -116,7 +137,7 @@ scenarios:
           partner_id: "REC: partner.id"
           allergen_id: "REC: allergen.id"
           severity: "mild"
-      - step: "Create duplicate allergy must be rejected"
+      - step: "Create duplicate allergy must be rejected even with reactions"
         action: "create"
         model: "partner.allergy"
         expect_error:
@@ -126,6 +147,80 @@ scenarios:
           partner_id: "REC: partner.id"
           allergen_id: "REC: allergen.id"
           severity: "severe"
+          reaction_ids:
+            - "REC: reaction_hives.id"
+
+  - name: "Positive - Reactions Set On Create"
+    steps:
+      - step: "Create allergy with two reactions"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "moderate"
+          reaction_ids:
+            - "REC: reaction_hives.id"
+            - "REC: reaction_swelling.id"
+      - step: "Assert both reactions present"
+        action: "assert"
+        target: "allergy"
+        asserts:
+          reaction_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: reaction_hives"
+              - "REC: reaction_swelling"
+
+  - name: "Positive - Write Adds Third Reaction"
+    steps:
+      - step: "Create allergy with two reactions"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "moderate"
+          reaction_ids:
+            - "REC: reaction_hives.id"
+            - "REC: reaction_swelling.id"
+      - step: "Write third reaction"
+        action: "write"
+        target: "allergy"
+        values:
+          reaction_ids:
+            - "REC: reaction_hives.id"
+            - "REC: reaction_swelling.id"
+            - "REC: reaction_anaphylaxis.id"
+      - step: "Assert three reactions present"
+        action: "assert"
+        target: "allergy"
+        asserts:
+          reaction_ids:
+            type: "m2m"
+            check: "count"
+            expected_count: 3
+
+  - name: "Positive - Allergy Without Reactions Allowed"
+    steps:
+      - step: "Create allergy without reactions"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Assert reaction_ids is empty"
+        action: "assert"
+        target: "allergy"
+        asserts:
+          reaction_ids:
+            type: "value"
+            operator: "is_falsy"
 
   - name: "Positive - Same Allergen Different Partner Allowed"
     steps:

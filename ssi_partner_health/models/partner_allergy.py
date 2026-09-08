@@ -43,6 +43,15 @@ class PartnerAllergy(models.Model):
         default="mild",
         help="Severity of the allergic reaction.",
     )
+    reaction_ids = fields.Many2many(
+        string="Reactions",
+        comodel_name="health.allergen_reaction",
+        relation="rel_partner_allergy_2_allergen_reaction",
+        column1="allergy_id",
+        column2="reaction_id",
+        help="Clinical manifestations observed for this allergy. "
+        "Zero or more may be recorded.",
+    )
     note = fields.Text(
         string="Note",
         help="Additional information about this allergy.",
@@ -53,6 +62,11 @@ class PartnerAllergy(models.Model):
         "allergen_id",
     )
     def _check_no_duplicate_allergen(self):
+        """Forbid recording the same allergen twice for one contact.
+
+        :raises UserError: when another ``partner.allergy`` row already
+            exists for the same ``partner_id`` and ``allergen_id``.
+        """
         obj_allergy = self.env["partner.allergy"]
         for allergy in self:
             criteria = [

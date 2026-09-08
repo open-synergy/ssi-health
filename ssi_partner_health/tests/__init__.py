@@ -9,3 +9,6 @@ from . import test_res_partner_body_measurement
 from . import test_partner_allergy
 from . import test_partner_disease_history
 from . import test_partner_health_detail_cascade
+from . import test_partner_medication
+from . import test_partner_health_provider
+from . import test_ui_res_partner
