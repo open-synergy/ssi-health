@@ -1,3 +1,6 @@
+options:
+  auto_refresh: true
+
 setup:
   steps:
     - step: "Create partner"

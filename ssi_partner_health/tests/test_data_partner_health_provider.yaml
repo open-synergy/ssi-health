@@ -1,3 +1,6 @@
+options:
+  auto_refresh: true
+
 setup:
   steps:
     - step: "Create partner"
@@ -124,6 +127,16 @@ scenarios:
       - step: "Delete the remaining winning row"
         action: "unlink"
         target: "row_seq20"
+      - step: "Assert family doctor falls back to the last row"
+        action: "assert"
+        target: "partner"
+        asserts:
+          family_doctor_id:
+            type: "m2o"
+            expected: "REC: doctor2"
+      - step: "Delete the last remaining row"
+        action: "unlink"
+        target: "row_seq10"
       - step: "Assert family doctor is cleared"
         action: "assert"
         target: "partner"

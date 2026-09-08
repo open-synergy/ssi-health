@@ -55,6 +55,19 @@ odoo.define("ssi_partner_health.res_partner_tour", function (require) {
                 },
             },
 
+            // ── Body Measurements is only visible for individual
+            // contacts (docs/res_partner/01-create.md Pre-Condition:
+            // "individual contacts only, i.e. Individual is selected
+            // instead of Company"). The Create form defaults to
+            // Company, so the page stays attrs-invisible until this
+            // step runs.
+            {
+                content: "Select Individual contact type",
+                trigger:
+                    ".o_field_widget[name='company_type'] .o_radio_item:contains(Individual) input",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+
             // ── Open the Body Measurements page. It is appended after
             // the base notebook pages, so it is not active by default.
             {
