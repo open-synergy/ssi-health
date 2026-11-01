@@ -80,6 +80,26 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_acutestress
+msgid "Acute Stress Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_adjustment
+msgid "Adjustment Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_agoraphobia
+msgid "Agoraphobia"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_alcoholud
+msgid "Alcohol Use Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.model,name:ssi_health.model_health_allergen
 #: model:res.groups,name:ssi_health.health_allergen_group
 msgid "Allergen"
@@ -116,6 +136,16 @@ msgid "Allergens"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_j30
+msgid "Allergic Rhinitis"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_amoxicillin
+msgid "Amoxicillin"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.allergen_reaction,name:ssi_health.allergen_reaction_anaphylaxis
 msgid "Anaphylaxis"
 msgstr ""
@@ -126,8 +156,38 @@ msgid "Angioedema"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_anorexia
+msgid "Anorexia Nervosa"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_antisocialpd
+msgid "Antisocial Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_anxiety
 msgid "Anxiety Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_aspirin
+msgid "Aspirin / NSAIDs"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_j45
+msgid "Asthma"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n06ba09
+msgid "Atomoxetine"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_l20
+msgid "Atopic Dermatitis (Eczema)"
 msgstr ""
 
 #. module: ssi_health
@@ -142,8 +202,68 @@ msgid "Attachment Count"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_adhd
+msgid "Attention-Deficit/Hyperactivity Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_asd
+msgid "Autism Spectrum Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_avoidantpd
+msgid "Avoidant Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_arfid
+msgid "Avoidant/Restrictive Food Intake Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_beesting
+msgid "Bee Sting"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_bingeeating
+msgid "Binge-Eating Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_bipolar1
+msgid "Bipolar I Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_bipolar2
+msgid "Bipolar II Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_bipolar
 msgid "Bipolar and Related Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease_category,name:ssi_health.icd10_blood
+msgid "Blood and Immune Disorders (ICD-10 D50-D89)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_bdd
+msgid "Body Dysmorphic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_borderlinepd
+msgid "Borderline Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_briefpsychotic
+msgid "Brief Psychotic Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -152,11 +272,71 @@ msgid "Bronchospasm"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_r03ba02
+msgid "Budesonide (inhaler)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_bulimia
+msgid "Bulimia Nervosa"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_cannabisud
+msgid "Cannabis Use Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n03af01
+msgid "Carbamazepine"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_catdander
+msgid "Cat Dander"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen__category_id
 #: model:ir.model.fields,field_description:ssi_health.field_health_disease__category_id
 #: model_terms:ir.ui.view,arch_db:ssi_health.health_allergen_view_search
 #: model_terms:ir.ui.view,arch_db:ssi_health.health_disease_view_search
 msgid "Category"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_g80
+msgid "Cerebral Palsy"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_r06ae07
+msgid "Cetirizine"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_stutter
+msgid "Childhood-Onset Fluency Disorder (Stuttering)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_b18_1
+msgid "Chronic Hepatitis B"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease_category,name:ssi_health.icd10_neuro
+msgid "Chronic Neurological Conditions (ICD-10 G)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease_category,name:ssi_health.icd10_resp
+msgid "Chronic Respiratory Conditions (ICD-10 J)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_cockroach
+msgid "Cockroach Allergen"
 msgstr ""
 
 #. module: ssi_health
@@ -171,8 +351,23 @@ msgid "Code"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_k90_0
+msgid "Coeliac Disease"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_cd
+msgid "Conduct Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.ui.menu,name:ssi_health.menu_health_configuration
 msgid "Configuration"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_q24_9
+msgid "Congenital Heart Disease"
 msgstr ""
 
 #. module: ssi_health
@@ -183,6 +378,16 @@ msgstr ""
 #. module: ssi_health
 #: model:health.allergen_reaction,name:ssi_health.allergen_reaction_contact_dermatitis
 msgid "Contact Dermatitis"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_conversion
+msgid "Conversion Disorder (Functional Neurological Symptom Disorder)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_milk
+msgid "Cow's Milk / Dairy"
 msgstr ""
 
 #. module: ssi_health
@@ -208,8 +413,43 @@ msgid "Created on"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_cyclothymic
+msgid "Cyclothymic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_v03ac03
+msgid "Deferasirox"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_delayedejaculation
+msgid "Delayed Ejaculation"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_delirium
+msgid "Delirium"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_delusional
+msgid "Delusional Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.provider_role,name:ssi_health.provider_role_dentist
 msgid "Dentist"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_dependentpd
+msgid "Dependent Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_depersonalization
+msgid "Depersonalization/Derealization Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -218,8 +458,18 @@ msgid "Depressive Disorders"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_dcd
+msgid "Developmental Coordination Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.allergen_reaction,name:ssi_health.allergen_reaction_diarrhea
 msgid "Diarrhea"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n05ba01
+msgid "Diazepam (rectal)"
 msgstr ""
 
 #. module: ssi_health
@@ -247,6 +497,11 @@ msgid "Diseases"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_dsed
+msgid "Disinhibited Social Engagement Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen__display_name
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_category__display_name
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_reaction__display_name
@@ -258,8 +513,18 @@ msgid "Display Name"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_dmdd
+msgid "Disruptive Mood Dysregulation Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_disruptive_conduct
 msgid "Disruptive, Impulse-Control, and Conduct Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_dissociativeamnesia
+msgid "Dissociative Amnesia"
 msgstr ""
 
 #. module: ssi_health
@@ -268,8 +533,28 @@ msgid "Dissociative Disorders"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_did
+msgid "Dissociative Identity Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_dogdander
+msgid "Dog Dander"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_q90
+msgid "Down Syndrome"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.allergen_category,name:ssi_health.allergen_category_drug
 msgid "Drug"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_egg
+msgid "Egg"
 msgstr ""
 
 #. module: ssi_health
@@ -278,13 +563,98 @@ msgid "Elimination Disorders"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_encopresis
+msgid "Encopresis"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease_category,name:ssi_health.icd10_endo
+msgid "Endocrine and Metabolic Conditions (ICD-10 E)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_enuresis
+msgid "Enuresis"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.allergen_category,name:ssi_health.allergen_category_environmental
 msgid "Environmental"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_g40
+msgid "Epilepsy"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_c01ca24
+msgid "Epinephrine / Adrenaline (auto-injector)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_erectiledis
+msgid "Erectile Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_excoriation
+msgid "Excoriation (Skin-Picking) Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_exhibitionistic
+msgid "Exhibitionistic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_factitious
+msgid "Factitious Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_feeding_eating
 msgid "Feeding and Eating Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_femaleorgasmic
+msgid "Female Orgasmic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_fsiad
+msgid "Female Sexual Interest/Arousal Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_b03aa07
+msgid "Ferrous Sulfate (iron)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_fetishistic
+msgid "Fetishistic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_fireant
+msgid "Fire Ant Bite"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_fish
+msgid "Fish"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_r03ba05
+msgid "Fluticasone (inhaler)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_b03bb01
+msgid "Folic Acid"
 msgstr ""
 
 #. module: ssi_health
@@ -337,13 +707,73 @@ msgid "Food"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_formaldehyde
+msgid "Formaldehyde"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_fragrance
+msgid "Fragrance / Perfume"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_frotteuristic
+msgid "Frotteuristic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_d55_0
+msgid "G6PD Deficiency"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_gambling
+msgid "Gambling Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_k21
+msgid "Gastro-Oesophageal Reflux Disease"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_gender_dysphoria
 msgid "Gender Dysphoria"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_gd_adoladult
+msgid "Gender Dysphoria in Adolescents and Adults"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_gd_child
+msgid "Gender Dysphoria in Children"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.provider_role,name:ssi_health.provider_role_general_practitioner
 msgid "General Practitioner"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_gad
+msgid "Generalized Anxiety Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_gpppd
+msgid "Genito-Pelvic Pain/Penetration Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_h04aa01
+msgid "Glucagon"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_d66
+msgid "Haemophilia A"
 msgstr ""
 
 #. module: ssi_health
@@ -389,6 +819,41 @@ msgid "Health Provider Roles"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_h90
+msgid "Hearing Loss"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease_category,name:ssi_health.icd10_circ
+msgid "Heart and Circulatory Conditions (ICD-10 I/Q2)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_histrionicpd
+msgid "Histrionic Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_hoarding
+msgid "Hoarding Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_dustmite
+msgid "House Dust Mite"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_hypersomnia
+msgid "Hypersomnolence Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_e03
+msgid "Hypothyroidism"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen__id
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_category__id
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_reaction__id
@@ -397,6 +862,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_health.field_health_medication__id
 #: model:ir.model.fields,field_description:ssi_health.field_health_provider_role__id
 msgid "ID"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_m01ae01
+msgid "Ibuprofen"
 msgstr ""
 
 #. module: ssi_health
@@ -451,6 +921,16 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_illnessanxiety
+msgid "Illness Anxiety Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_d69_3
+msgid "Immune Thrombocytopenic Purpura"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.model.fields.selection,name:ssi_health.selection__health_provider_role__provider_type__individual
 msgid "Individual"
 msgstr ""
@@ -458,6 +938,36 @@ msgstr ""
 #. module: ssi_health
 #: model:health.allergen_category,name:ssi_health.allergen_category_insect
 msgid "Insect"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_insomnia
+msgid "Insomnia Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_a10a
+msgid "Insulin"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_intellectdis
+msgid "Intellectual Disability (Intellectual Developmental Disorder)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_ied
+msgid "Intermittent Explosive Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_contrastmedia
+msgid "Iodinated Contrast Media"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_d50
+msgid "Iron Deficiency Anaemia"
 msgstr ""
 
 #. module: ssi_health
@@ -469,6 +979,26 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_health.field_health_medication__message_is_follower
 #: model:ir.model.fields,field_description:ssi_health.field_health_provider_role__message_is_follower
 msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_j04ac01
+msgid "Isoniazid"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_m08
+msgid "Juvenile Idiopathic Arthritis"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_kleptomania
+msgid "Kleptomania"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_langdis
+msgid "Language Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -510,6 +1040,26 @@ msgid "Latex"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n03ax14
+msgid "Levetiracetam"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_h03aa01
+msgid "Levothyroxine"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_localanesthetic
+msgid "Local Anesthetics"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_r06ax13
+msgid "Loratadine"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_category__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_reaction__message_main_attachment_id
@@ -518,6 +1068,26 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_health.field_health_medication__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_health.field_health_provider_role__message_main_attachment_id
 msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_mdd
+msgid "Major Depressive Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_majorncd
+msgid "Major Neurocognitive Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_alzheimerncd
+msgid "Major/Mild Neurocognitive Disorder Due to Alzheimer's Disease"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_mhsdd
+msgid "Male Hypoactive Sexual Desire Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -589,8 +1159,48 @@ msgid "Messages"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_a10ba02
+msgid "Metformin"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n06ba04
+msgid "Methylphenidate"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n05cd08
+msgid "Midazolam (buccal/nasal)"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.provider_role,name:ssi_health.provider_role_midwife
 msgid "Midwife"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_g43
+msgid "Migraine"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_mildncd
+msgid "Mild Neurocognitive Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_mold
+msgid "Mold / Fungus Spores"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_r03dc03
+msgid "Montelukast"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_mosquito
+msgid "Mosquito Bite"
 msgstr ""
 
 #. module: ssi_health
@@ -605,6 +1215,11 @@ msgid "My Activity Deadline"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_h52_1
+msgid "Myopia"
+msgstr ""
+
+#. module: ssi_health
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen__name
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_category__name
 #: model:ir.model.fields,field_description:ssi_health.field_health_allergen_reaction__name
@@ -616,8 +1231,28 @@ msgid "Name"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_narcissisticpd
+msgid "Narcissistic Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_narcolepsy
+msgid "Narcolepsy"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_naturallatex
+msgid "Natural Rubber Latex"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.allergen_reaction,name:ssi_health.allergen_reaction_nausea_vomiting
 msgid "Nausea and Vomiting"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_n04
+msgid "Nephrotic Syndrome"
 msgstr ""
 
 #. module: ssi_health
@@ -661,6 +1296,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_health.field_health_medication__activity_type_id
 #: model:ir.model.fields,field_description:ssi_health.field_health_provider_role__activity_type_id
 msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_nickel
+msgid "Nickel"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_nightmaredis
+msgid "Nightmare Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_sleepwalking
+msgid "Non-Rapid Eye Movement Sleep Arousal Disorder (Sleepwalking Type)"
 msgstr ""
 
 #. module: ssi_health
@@ -730,6 +1380,21 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_e66
+msgid "Obesity"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_ocd
+msgid "Obsessive-Compulsive Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_ocpd
+msgid "Obsessive-Compulsive Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_obsessive_compulsive
 msgid "Obsessive-Compulsive and Related Disorders"
 msgstr ""
@@ -737,6 +1402,26 @@ msgstr ""
 #. module: ssi_health
 #: model:health.provider_role,name:ssi_health.provider_role_obstetrician
 msgid "Obstetrician"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_sleepapnea
+msgid "Obstructive Sleep Apnea Hypopnea"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_a02bc01
+msgid "Omeprazole"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_opioidud
+msgid "Opioid Use Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_odd
+msgid "Oppositional Defiant Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -750,8 +1435,38 @@ msgid "Other"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease_category,name:ssi_health.icd10_other
+msgid "Other Chronic Physical Conditions (ICD-10)"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_other_mental
 msgid "Other Mental Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_otherpetdander
+msgid "Other Pet Dander (General)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_omd_medical
+msgid "Other Specified Mental Disorder Due to Another Medical Condition"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_panic
+msgid "Panic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n02be01
+msgid "Paracetamol"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_paranoidpd
+msgid "Paranoid Personality Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -766,13 +1481,78 @@ msgid "Parent Category"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_peanut
+msgid "Peanut"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.provider_role,name:ssi_health.provider_role_pediatrician
 msgid "Pediatrician"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_pedophilic
+msgid "Pedophilic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_penicillin
+msgid "Penicillin"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_ticmotorvocal
+msgid "Persistent (Chronic) Motor or Vocal Tic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_dysthymia
+msgid "Persistent Depressive Disorder (Dysthymia)"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_personality
 msgid "Personality Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n03ab02
+msgid "Phenytoin"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_pica
+msgid "Pica"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_poisonivy
+msgid "Poison Ivy/Oak (Urushiol)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_pollen
+msgid "Pollen"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_ptsd
+msgid "Post-Traumatic Stress Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_h02ab07
+msgid "Prednisone"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_prematureejac
+msgid "Premature (Early) Ejaculation"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_pmdd
+msgid "Premenstrual Dysphoric Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -788,6 +1568,21 @@ msgstr ""
 #. module: ssi_health
 #: model:ir.model.fields,field_description:ssi_health.field_health_provider_role__provider_type
 msgid "Provider Type"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_ticprovisional
+msgid "Provisional Tic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_pyromania
+msgid "Pyromania"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_rad
+msgid "Reactive Attachment Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -807,8 +1602,48 @@ msgid "Responsible User"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_i09_9
+msgid "Rheumatic Heart Disease"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.allergen_reaction,name:ssi_health.allergen_reaction_rhinitis
 msgid "Rhinitis"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_j04ab02
+msgid "Rifampicin"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n05ax08
+msgid "Risperidone"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_rumination
+msgid "Rumination Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_r03ac02
+msgid "Salbutamol (inhaler)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_schizoaff
+msgid "Schizoaffective Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_schizoidpd
+msgid "Schizoid Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_schizo
+msgid "Schizophrenia"
 msgstr ""
 
 #. module: ssi_health
@@ -817,8 +1652,53 @@ msgid "Schizophrenia Spectrum and Other Psychotic Disorders"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_schizophreniform
+msgid "Schizophreniform Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_schizotypalpd
+msgid "Schizotypal Personality Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_m41
+msgid "Scoliosis"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_selectivemute
+msgid "Selective Mutism"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_separationanx
+msgid "Separation Anxiety Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_sesame
+msgid "Sesame"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_sexual_dysfunctions
 msgid "Sexual Dysfunctions"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_sexualmasochism
+msgid "Sexual Masochism Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_sexualsadism
+msgid "Sexual Sadism Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_shellfish
+msgid "Shellfish / Crustacean"
 msgstr ""
 
 #. module: ssi_health
@@ -827,8 +1707,43 @@ msgid "Sleep-Wake Disorders"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_spcd
+msgid "Social (Pragmatic) Communication Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_socialanx
+msgid "Social Anxiety Disorder (Social Phobia)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_somatic
+msgid "Somatic Symptom Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_somatic_symptom
 msgid "Somatic Symptom and Related Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_soy
+msgid "Soy"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_sld
+msgid "Specific Learning Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_specificphobia
+msgid "Specific Phobia"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_speechsound
+msgid "Speech Sound Disorder"
 msgstr ""
 
 #. module: ssi_health
@@ -847,13 +1762,73 @@ msgid ""
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_stereotypic
+msgid "Stereotypic Movement Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_stimulantud
+msgid "Stimulant Use Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_substance_related
 msgid "Substance-Related and Addictive Disorders"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_sulfa
+msgid "Sulfa Drugs (Sulfonamides)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_d56
+msgid "Thalassaemia"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_tobaccoud
+msgid "Tobacco Use Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_tourette
+msgid "Tourette's Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_transvestic
+msgid "Transvestic Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.disease_category,name:ssi_health.dsm5_trauma_stressor
 msgid "Trauma- and Stressor-Related Disorders"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_treenut
+msgid "Tree Nuts"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_trichotillomania
+msgid "Trichotillomania (Hair-Pulling Disorder)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_a15
+msgid "Tuberculosis (under treatment)"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_e10
+msgid "Type 1 Diabetes Mellitus"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_e11
+msgid "Type 2 Diabetes Mellitus"
 msgstr ""
 
 #. module: ssi_health
@@ -890,8 +1865,55 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_unspecifiedmd
+msgid "Unspecified Mental Disorder"
+msgstr ""
+
+#. module: ssi_health
 #: model:health.allergen_reaction,name:ssi_health.allergen_reaction_urticaria
 msgid "Urticaria"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.medication,name:ssi_health.health_medication_n03ag01
+msgid "Valproic Acid"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.disease,name:ssi_health.health_disease_voyeuristic
+msgid "Voyeuristic Disorder"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_waspsting
+msgid "Wasp Sting"
+msgstr ""
+
+#. module: ssi_health
+#: model:ir.model.fields,field_description:ssi_health.field_health_allergen__website_message_ids
+#: model:ir.model.fields,field_description:ssi_health.field_health_allergen_category__website_message_ids
+#: model:ir.model.fields,field_description:ssi_health.field_health_allergen_reaction__website_message_ids
+#: model:ir.model.fields,field_description:ssi_health.field_health_disease__website_message_ids
+#: model:ir.model.fields,field_description:ssi_health.field_health_disease_category__website_message_ids
+#: model:ir.model.fields,field_description:ssi_health.field_health_medication__website_message_ids
+#: model:ir.model.fields,field_description:ssi_health.field_health_provider_role__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_health
+#: model:ir.model.fields,help:ssi_health.field_health_allergen__website_message_ids
+#: model:ir.model.fields,help:ssi_health.field_health_allergen_category__website_message_ids
+#: model:ir.model.fields,help:ssi_health.field_health_allergen_reaction__website_message_ids
+#: model:ir.model.fields,help:ssi_health.field_health_disease__website_message_ids
+#: model:ir.model.fields,help:ssi_health.field_health_disease_category__website_message_ids
+#: model:ir.model.fields,help:ssi_health.field_health_medication__website_message_ids
+#: model:ir.model.fields,help:ssi_health.field_health_provider_role__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_health
+#: model:health.allergen,name:ssi_health.health_allergen_wheat
+msgid "Wheat / Gluten"
 msgstr ""
 
 #. module: ssi_health
