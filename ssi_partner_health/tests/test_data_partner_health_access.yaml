@@ -90,13 +90,11 @@ scenarios:
           partner_id: "REC: partner.id"
           date: 2024-01-01
           value: 170.0
-      - step: "Plain user cannot search height"
-        action: "search"
-        model: "partner.height"
+      - step: "Plain user cannot read height"
+        action: "call"
+        target: "height"
+        method: "read"
         as_user: "user_plain"
-        domain:
-          - ["partner_id", "=", "REC: partner.id"]
-        save_as: "found_height"
         expect_error:
           type: "AccessError"
       - step: "Plain user cannot write height"
@@ -131,13 +129,11 @@ scenarios:
           partner_id: "REC: partner.id"
           date: 2024-01-01
           value: 60.0
-      - step: "Plain user cannot search weight"
-        action: "search"
-        model: "partner.weight"
+      - step: "Plain user cannot read weight"
+        action: "call"
+        target: "weight"
+        method: "read"
         as_user: "user_plain"
-        domain:
-          - ["partner_id", "=", "REC: partner.id"]
-        save_as: "found_weight"
         expect_error:
           type: "AccessError"
       - step: "Plain user cannot write weight"
@@ -172,13 +168,11 @@ scenarios:
           partner_id: "REC: partner.id"
           date: 2024-01-01
           value: 40.0
-      - step: "Plain user cannot search head_circumference"
-        action: "search"
-        model: "partner.head_circumference"
+      - step: "Plain user cannot read head_circumference"
+        action: "call"
+        target: "head_circumference"
+        method: "read"
         as_user: "user_plain"
-        domain:
-          - ["partner_id", "=", "REC: partner.id"]
-        save_as: "found_head_circumference"
         expect_error:
           type: "AccessError"
       - step: "Plain user cannot write head_circumference"
@@ -213,13 +207,11 @@ scenarios:
           partner_id: "REC: partner.id"
           allergen_id: "REC: allergen.id"
           severity: "mild"
-      - step: "Plain user cannot search allergy"
-        action: "search"
-        model: "partner.allergy"
+      - step: "Plain user cannot read allergy"
+        action: "call"
+        target: "allergy"
+        method: "read"
         as_user: "user_plain"
-        domain:
-          - ["partner_id", "=", "REC: partner.id"]
-        save_as: "found_allergy"
         expect_error:
           type: "AccessError"
       - step: "Plain user cannot write allergy"
@@ -254,13 +246,11 @@ scenarios:
           partner_id: "REC: partner.id"
           disease_id: "REC: disease.id"
           note: "initial"
-      - step: "Plain user cannot search disease_history"
-        action: "search"
-        model: "partner.disease_history"
+      - step: "Plain user cannot read disease_history"
+        action: "call"
+        target: "disease_history"
+        method: "read"
         as_user: "user_plain"
-        domain:
-          - ["partner_id", "=", "REC: partner.id"]
-        save_as: "found_disease_history"
         expect_error:
           type: "AccessError"
       - step: "Plain user cannot write disease_history"
@@ -295,13 +285,11 @@ scenarios:
           partner_id: "REC: partner.id"
           medication_id: "REC: medication.id"
           dose: "500mg"
-      - step: "Plain user cannot search medication"
-        action: "search"
-        model: "partner.medication"
+      - step: "Plain user cannot read medication"
+        action: "call"
+        target: "medication"
+        method: "read"
         as_user: "user_plain"
-        domain:
-          - ["partner_id", "=", "REC: partner.id"]
-        save_as: "found_medication"
         expect_error:
           type: "AccessError"
       - step: "Plain user cannot write medication"
@@ -336,13 +324,11 @@ scenarios:
           partner_id: "REC: partner.id"
           provider_id: "REC: doctor.id"
           note: "initial"
-      - step: "Plain user cannot search health_provider"
-        action: "search"
-        model: "partner.health_provider"
+      - step: "Plain user cannot read health_provider"
+        action: "call"
+        target: "health_provider"
+        method: "read"
         as_user: "user_plain"
-        domain:
-          - ["partner_id", "=", "REC: partner.id"]
-        save_as: "found_health_provider"
         expect_error:
           type: "AccessError"
       - step: "Plain user cannot write health_provider"
@@ -359,6 +345,14 @@ scenarios:
         as_user: "user_plain"
         expect_error:
           type: "AccessError"
+
+  - name: "Positive - Internal User Without Group Can Still Read Contact"
+    steps:
+      - step: "Plain user reads contact with default fields"
+        action: "call"
+        target: "partner"
+        method: "read"
+        as_user: "user_plain"
 
   - name: "Positive - Group Member Has Full CRUD"
     steps:
