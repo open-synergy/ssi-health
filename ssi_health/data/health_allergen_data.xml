@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="health_allergen_formaldehyde" model="health.allergen">
+        <field name="name">Formaldehyde</field>
+        <field name="code">FORMALDEHYDE</field>
+        <field name="category_id" ref="allergen_category_contact" />
+    </record>
+
+    <record id="health_allergen_fragrance" model="health.allergen">
+        <field name="name">Fragrance / Perfume</field>
+        <field name="code">FRAGRANCE</field>
+        <field name="category_id" ref="allergen_category_contact" />
+    </record>
+
+    <record id="health_allergen_nickel" model="health.allergen">
+        <field name="name">Nickel</field>
+        <field name="code">NICKEL</field>
+        <field name="category_id" ref="allergen_category_contact" />
+    </record>
+
+    <record id="health_allergen_poisonivy" model="health.allergen">
+        <field name="name">Poison Ivy/Oak (Urushiol)</field>
+        <field name="code">POISONIVY</field>
+        <field name="category_id" ref="allergen_category_contact" />
+    </record>
+
+    <record id="health_allergen_amoxicillin" model="health.allergen">
+        <field name="name">Amoxicillin</field>
+        <field name="code">AMOXICILLIN</field>
+        <field name="category_id" ref="allergen_category_drug" />
+    </record>
+
+    <record id="health_allergen_aspirin" model="health.allergen">
+        <field name="name">Aspirin / NSAIDs</field>
+        <field name="code">ASPIRIN</field>
+        <field name="category_id" ref="allergen_category_drug" />
+    </record>
+
+    <record id="health_allergen_contrastmedia" model="health.allergen">
+        <field name="name">Iodinated Contrast Media</field>
+        <field name="code">CONTRASTMEDIA</field>
+        <field name="category_id" ref="allergen_category_drug" />
+    </record>
+
+    <record id="health_allergen_localanesthetic" model="health.allergen">
+        <field name="name">Local Anesthetics</field>
+        <field name="code">LOCALANESTHETIC</field>
+        <field name="category_id" ref="allergen_category_drug" />
+    </record>
+
+    <record id="health_allergen_penicillin" model="health.allergen">
+        <field name="name">Penicillin</field>
+        <field name="code">PENICILLIN</field>
+        <field name="category_id" ref="allergen_category_drug" />
+    </record>
+
+    <record id="health_allergen_sulfa" model="health.allergen">
+        <field name="name">Sulfa Drugs (Sulfonamides)</field>
+        <field name="code">SULFA</field>
+        <field name="category_id" ref="allergen_category_drug" />
+    </record>
+
+    <record id="health_allergen_catdander" model="health.allergen">
+        <field name="name">Cat Dander</field>
+        <field name="code">CATDANDER</field>
+        <field name="category_id" ref="allergen_category_environmental" />
+    </record>
+
+    <record id="health_allergen_dogdander" model="health.allergen">
+        <field name="name">Dog Dander</field>
+        <field name="code">DOGDANDER</field>
+        <field name="category_id" ref="allergen_category_environmental" />
+    </record>
+
+    <record id="health_allergen_dustmite" model="health.allergen">
+        <field name="name">House Dust Mite</field>
+        <field name="code">DUSTMITE</field>
+        <field name="category_id" ref="allergen_category_environmental" />
+    </record>
+
+    <record id="health_allergen_mold" model="health.allergen">
+        <field name="name">Mold / Fungus Spores</field>
+        <field name="code">MOLD</field>
+        <field name="category_id" ref="allergen_category_environmental" />
+    </record>
+
+    <record id="health_allergen_pollen" model="health.allergen">
+        <field name="name">Pollen</field>
+        <field name="code">POLLEN</field>
+        <field name="category_id" ref="allergen_category_environmental" />
+    </record>
+
+    <record id="health_allergen_egg" model="health.allergen">
+        <field name="name">Egg</field>
+        <field name="code">EGG</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_fish" model="health.allergen">
+        <field name="name">Fish</field>
+        <field name="code">FISH</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_milk" model="health.allergen">
+        <field name="name">Cow's Milk / Dairy</field>
+        <field name="code">MILK</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_peanut" model="health.allergen">
+        <field name="name">Peanut</field>
+        <field name="code">PEANUT</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_sesame" model="health.allergen">
+        <field name="name">Sesame</field>
+        <field name="code">SESAME</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_shellfish" model="health.allergen">
+        <field name="name">Shellfish / Crustacean</field>
+        <field name="code">SHELLFISH</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_soy" model="health.allergen">
+        <field name="name">Soy</field>
+        <field name="code">SOY</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_treenut" model="health.allergen">
+        <field name="name">Tree Nuts</field>
+        <field name="code">TREENUT</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_wheat" model="health.allergen">
+        <field name="name">Wheat / Gluten</field>
+        <field name="code">WHEAT</field>
+        <field name="category_id" ref="allergen_category_food" />
+    </record>
+
+    <record id="health_allergen_beesting" model="health.allergen">
+        <field name="name">Bee Sting</field>
+        <field name="code">BEESTING</field>
+        <field name="category_id" ref="allergen_category_insect" />
+    </record>
+
+    <record id="health_allergen_fireant" model="health.allergen">
+        <field name="name">Fire Ant Bite</field>
+        <field name="code">FIREANT</field>
+        <field name="category_id" ref="allergen_category_insect" />
+    </record>
+
+    <record id="health_allergen_mosquito" model="health.allergen">
+        <field name="name">Mosquito Bite</field>
+        <field name="code">MOSQUITO</field>
+        <field name="category_id" ref="allergen_category_insect" />
+    </record>
+
+    <record id="health_allergen_waspsting" model="health.allergen">
+        <field name="name">Wasp Sting</field>
+        <field name="code">WASPSTING</field>
+        <field name="category_id" ref="allergen_category_insect" />
+    </record>
+
+    <record id="health_allergen_naturallatex" model="health.allergen">
+        <field name="name">Natural Rubber Latex</field>
+        <field name="code">NATURALLATEX</field>
+        <field name="category_id" ref="allergen_category_latex" />
+    </record>
+
+    <record id="health_allergen_cockroach" model="health.allergen">
+        <field name="name">Cockroach Allergen</field>
+        <field name="code">COCKROACH</field>
+        <field name="category_id" ref="allergen_category_other" />
+    </record>
+
+    <record id="health_allergen_otherpetdander" model="health.allergen">
+        <field name="name">Other Pet Dander (General)</field>
+        <field name="code">OTHERPETDANDER</field>
+        <field name="category_id" ref="allergen_category_other" />
+    </record>
+</odoo>

@@ -9,7 +9,21 @@ from odoo.tests import HttpSavepointCase, tagged
 class TestUiHealthDisease(HttpSavepointCase):
     @classmethod
     def setUpClass(cls):
+        """Prepare the Pre-Conditions of the disease tours.
+
+        Seed diseases are removed first so that the list stays below
+        the page limit and the TOUR-* rows remain on the first page.
+        """
         super().setUpClass()
+        # The module ships 134 seed diseases, more than the 80 rows of a
+        # list page: the TOUR-* rows (largest ids) would fall on page 2.
+        # Remove the seed diseases so the list stays below the limit.
+        seed_ids = (
+            cls.env["ir.model.data"]
+            .search([("module", "=", "ssi_health"), ("model", "=", "health.disease")])
+            .mapped("res_id")
+        )
+        cls.env["health.disease"].browse(seed_ids).unlink()
         # Pre-Condition IK disiapkan di sini — BUKAN lewat klik UI.
         cls.env["health.disease_category"].create(
             {
