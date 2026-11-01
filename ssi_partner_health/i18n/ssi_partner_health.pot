@@ -595,6 +595,11 @@ msgid "Partner Head Circumference"
 msgstr ""
 
 #. module: ssi_partner_health
+#: model:res.groups,name:ssi_partner_health.partner_health_group
+msgid "Partner Health"
+msgstr ""
+
+#. module: ssi_partner_health
 #: model:ir.model,name:ssi_partner_health.model_partner_health_provider
 msgid "Partner Health Provider"
 msgstr ""
