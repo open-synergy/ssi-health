@@ -346,13 +346,22 @@ scenarios:
         expect_error:
           type: "AccessError"
 
-  - name: "Positive - Internal User Without Group Can Still Read Contact"
+  - name: "Positive - Internal User Without Group Can Read Module Fields Left In Arch"
     steps:
-      - step: "Plain user reads contact with default fields"
+      - step: "Plain user reads the module fields that remain in the form arch"
         action: "call"
         target: "partner"
         method: "read"
         as_user: "user_plain"
+        args:
+          - [
+              "name",
+              "height",
+              "weight",
+              "head_circumference",
+              "family_doctor_id",
+              "health_facility_id",
+            ]
 
   - name: "Positive - Group Member Has Full CRUD"
     steps:
