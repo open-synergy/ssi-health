@@ -29,7 +29,6 @@ DATA_FILES = (
     "health_disease_category_data.xml",
     "health_disease_category_icd10_data.xml",
     "health_disease_data.xml",
-    "health_allergen_category_data.xml",
     "health_allergen_data.xml",
     "health_medication_data.xml",
 )

@@ -99,6 +99,11 @@ class TestHealthSeedData(YamlTransactionCase):
         for name in expected:
             self.assertFalse(self._xmlid_rows(name))
         script = self._load_script()
+        seed_records = script._read_seed_records()
+        self.assertTrue(seed_records)
+        for _xml_id, model, code in seed_records:
+            self.assertIn(model, script.ADOPTED_MODELS)
+            self.assertTrue(code)
         for _run in range(2):
             script.migrate(self.env.cr, "14.0.1.2.0")
             for name, (res_id, table, code) in expected.items():
