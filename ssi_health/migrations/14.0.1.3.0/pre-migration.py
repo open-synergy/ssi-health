@@ -44,8 +44,8 @@ ADOPTED_MODELS = (
 def _read_seed_records():
     """Read the seed records declared by the module data files.
 
-    :return: list of ``(xml_id, model, code)`` tuples for the adopted
-        models only
+    :return: list of ``(xml_id, model, code)`` tuples; every record of
+        the listed files belongs to an adopted model and has a code
     :rtype: list
     """
     base = os.path.join(get_module_path(MODULE), "data")
@@ -53,15 +53,11 @@ def _read_seed_records():
     for filename in DATA_FILES:
         root = ET.parse(os.path.join(base, filename)).getroot()
         for record in root.iter("record"):
-            model = record.get("model")
-            if model not in ADOPTED_MODELS:
-                continue
             code = None
             for field in record.findall("field"):
                 if field.get("name") == "code":
                     code = field.text
-            if code:
-                result.append((record.get("id"), model, code))
+            result.append((record.get("id"), record.get("model"), code))
     return result
 
 

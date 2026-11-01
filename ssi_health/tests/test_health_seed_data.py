@@ -104,3 +104,32 @@ class TestHealthSeedData(YamlTransactionCase):
             for name, (res_id, table, code) in expected.items():
                 self.assertEqual(self._xmlid_rows(name), [res_id])
                 self.assertEqual(self._count_by_code(table, code), 1)
+
+    @mute_logger("OpenUpgrade")
+    def test_pre_migration_skips_record_without_matching_row(self):
+        """Create no xml_id when no existing row has the seed code.
+
+        Pure Python -- trigger P10 (L-11: the migration script must be
+        imported from its file; ``EVAL:`` cannot do it). The xml_id row
+        of a seed record is deleted and the code of that record is
+        changed, so no row matches the seed code any more. The script
+        must register nothing, while every other seed record, which
+        still has its xml_id, stays untouched.
+        """
+        name = "health_medication_b03bb01"
+        record = self.env.ref("%s.%s" % (MODULE, name))
+        self.env.cr.execute(
+            "DELETE FROM ir_model_data WHERE module = %s AND name = %s",
+            (MODULE, name),
+        )
+        self.env.cr.execute(
+            "UPDATE health_medication SET code = %s WHERE id = %s",
+            ("CHANGED-CODE", record.id),
+        )
+        self.env.cr.execute("SELECT count(*) FROM ir_model_data")
+        rows_before = self.env.cr.fetchone()[0]
+        script = self._load_script()
+        script.migrate(self.env.cr, "14.0.1.2.0")
+        self.assertEqual(self._xmlid_rows(name), [])
+        self.env.cr.execute("SELECT count(*) FROM ir_model_data")
+        self.assertEqual(self.env.cr.fetchone()[0], rows_before)
