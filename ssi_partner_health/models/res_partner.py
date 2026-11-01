@@ -15,42 +15,49 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     height_ids = fields.One2many(
+        groups="ssi_partner_health.partner_health_group",
         comodel_name="partner.height",
         inverse_name="partner_id",
         string="Heights",
         help="Height measurement history of this contact.",
     )
     weight_ids = fields.One2many(
+        groups="ssi_partner_health.partner_health_group",
         comodel_name="partner.weight",
         inverse_name="partner_id",
         string="Weights",
         help="Weight measurement history of this contact.",
     )
     head_circumference_ids = fields.One2many(
+        groups="ssi_partner_health.partner_health_group",
         comodel_name="partner.head_circumference",
         inverse_name="partner_id",
         string="Head Circumferences",
         help="Head circumference measurement history of this contact.",
     )
     allergy_ids = fields.One2many(
+        groups="ssi_partner_health.partner_health_group",
         comodel_name="partner.allergy",
         inverse_name="partner_id",
         string="Allergies",
         help="Allergies recorded for this contact.",
     )
     disease_history_ids = fields.One2many(
+        groups="ssi_partner_health.partner_health_group",
         comodel_name="partner.disease_history",
         inverse_name="partner_id",
         string="Disease History",
         help="Disease history recorded for this contact.",
     )
     medication_ids = fields.One2many(
+        groups="ssi_partner_health.partner_health_group",
         comodel_name="partner.medication",
         inverse_name="partner_id",
         string="Medications",
         help="Medications recorded for this contact.",
     )
     health_provider_ids = fields.One2many(
+        groups="ssi_partner_health.partner_health_group",
         comodel_name="partner.health_provider",
         inverse_name="partner_id",
         string="Health Providers",

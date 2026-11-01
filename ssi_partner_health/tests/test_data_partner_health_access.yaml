@@ -1,0 +1,677 @@
+setup:
+  steps:
+    - step: "Create partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "Test Partner Health Access"
+        is_company: false
+    - step: "Create doctor partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "doctor"
+      values:
+        name: "Dr. Access Test"
+        is_company: false
+    - step: "Create allergen"
+      action: "create"
+      model: "health.allergen"
+      save_as: "allergen"
+      values:
+        name: "Access Peanut"
+        code: "/"
+    - step: "Create disease"
+      action: "create"
+      model: "health.disease"
+      save_as: "disease"
+      values:
+        name: "Access Hypertension"
+        code: "/"
+    - step: "Create medication"
+      action: "create"
+      model: "health.medication"
+      save_as: "medication"
+      values:
+        name: "Access Paracetamol"
+        code: "/"
+    - step: "Get partner health group"
+      action: "ref"
+      xml_id: "ssi_partner_health.partner_health_group"
+      save_as: "health_group"
+    - step: "Get internal user group"
+      action: "ref"
+      xml_id: "base.group_user"
+      save_as: "internal_group"
+    - step: "Create plain internal user"
+      action: "create"
+      model: "res.users"
+      save_as: "user_plain"
+      values:
+        name: "Plain Internal User"
+        # Login is generated per replay of this setup block (unique key).
+        login: "EVAL: 'plain_health_%d@example.com' % env['res.users'].search_count([])"
+        groups_id: [[6, 0, ["REF: base.group_user"]]]
+    - step: "Create health user"
+      action: "create"
+      model: "res.users"
+      save_as: "user_health"
+      values:
+        name: "Health Internal User"
+        login:
+          "EVAL: 'member_health_%d@example.com' % env['res.users'].search_count([])"
+        groups_id:
+          [
+            [
+              6,
+              0,
+              ["REF: base.group_user", "REF: ssi_partner_health.partner_health_group"],
+            ],
+          ]
+
+scenarios:
+  - name: "Negative - Internal User Without Group Is Denied"
+    steps:
+      - step: "Create height as superuser"
+        action: "create"
+        model: "partner.height"
+        save_as: "height"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 170.0
+      - step: "Plain user cannot create height"
+        action: "create"
+        model: "partner.height"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 170.0
+      - step: "Plain user cannot read height"
+        action: "call"
+        target: "height"
+        method: "read"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Plain user cannot write height"
+        action: "write"
+        target: "height"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          value: 171.0
+      - step: "Plain user cannot unlink height"
+        action: "unlink"
+        target: "height"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Create weight as superuser"
+        action: "create"
+        model: "partner.weight"
+        save_as: "weight"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 60.0
+      - step: "Plain user cannot create weight"
+        action: "create"
+        model: "partner.weight"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 60.0
+      - step: "Plain user cannot read weight"
+        action: "call"
+        target: "weight"
+        method: "read"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Plain user cannot write weight"
+        action: "write"
+        target: "weight"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          value: 61.0
+      - step: "Plain user cannot unlink weight"
+        action: "unlink"
+        target: "weight"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Create head_circumference as superuser"
+        action: "create"
+        model: "partner.head_circumference"
+        save_as: "head_circumference"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 40.0
+      - step: "Plain user cannot create head_circumference"
+        action: "create"
+        model: "partner.head_circumference"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 40.0
+      - step: "Plain user cannot read head_circumference"
+        action: "call"
+        target: "head_circumference"
+        method: "read"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Plain user cannot write head_circumference"
+        action: "write"
+        target: "head_circumference"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          value: 41.0
+      - step: "Plain user cannot unlink head_circumference"
+        action: "unlink"
+        target: "head_circumference"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Create allergy as superuser"
+        action: "create"
+        model: "partner.allergy"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Plain user cannot create allergy"
+        action: "create"
+        model: "partner.allergy"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Plain user cannot read allergy"
+        action: "call"
+        target: "allergy"
+        method: "read"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Plain user cannot write allergy"
+        action: "write"
+        target: "allergy"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          severity: "severe"
+      - step: "Plain user cannot unlink allergy"
+        action: "unlink"
+        target: "allergy"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Create disease_history as superuser"
+        action: "create"
+        model: "partner.disease_history"
+        save_as: "disease_history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          note: "initial"
+      - step: "Plain user cannot create disease_history"
+        action: "create"
+        model: "partner.disease_history"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          note: "initial"
+      - step: "Plain user cannot read disease_history"
+        action: "call"
+        target: "disease_history"
+        method: "read"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Plain user cannot write disease_history"
+        action: "write"
+        target: "disease_history"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          note: "changed"
+      - step: "Plain user cannot unlink disease_history"
+        action: "unlink"
+        target: "disease_history"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Create medication as superuser"
+        action: "create"
+        model: "partner.medication"
+        save_as: "medication"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          dose: "500mg"
+      - step: "Plain user cannot create medication"
+        action: "create"
+        model: "partner.medication"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          dose: "500mg"
+      - step: "Plain user cannot read medication"
+        action: "call"
+        target: "medication"
+        method: "read"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Plain user cannot write medication"
+        action: "write"
+        target: "medication"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          dose: "750mg"
+      - step: "Plain user cannot unlink medication"
+        action: "unlink"
+        target: "medication"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Create health_provider as superuser"
+        action: "create"
+        model: "partner.health_provider"
+        save_as: "health_provider"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+          note: "initial"
+      - step: "Plain user cannot create health_provider"
+        action: "create"
+        model: "partner.health_provider"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+          note: "initial"
+      - step: "Plain user cannot read health_provider"
+        action: "call"
+        target: "health_provider"
+        method: "read"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+      - step: "Plain user cannot write health_provider"
+        action: "write"
+        target: "health_provider"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+        values:
+          note: "changed"
+      - step: "Plain user cannot unlink health_provider"
+        action: "unlink"
+        target: "health_provider"
+        as_user: "user_plain"
+        expect_error:
+          type: "AccessError"
+
+  - name: "Positive - Internal User Without Group Can Read Module Fields Left In Arch"
+    steps:
+      - step: "Plain user reads the module fields that remain in the form arch"
+        action: "call"
+        target: "partner"
+        method: "read"
+        as_user: "user_plain"
+        args:
+          - [
+              "name",
+              "height",
+              "weight",
+              "head_circumference",
+              "family_doctor_id",
+              "health_facility_id",
+            ]
+
+  - name: "Positive - Group Member Has Full CRUD"
+    steps:
+      - step: "Member creates height"
+        action: "create"
+        model: "partner.height"
+        as_user: "user_health"
+        save_as: "height"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 170.0
+      - step: "Member writes height"
+        action: "write"
+        target: "height"
+        as_user: "user_health"
+        values:
+          value: 171.0
+      - step: "Assert height updated"
+        action: "assert"
+        target: "height"
+        asserts:
+          value:
+            type: "value"
+            expected: 171.0
+      - step: "Member unlinks height"
+        action: "unlink"
+        target: "height"
+        as_user: "user_health"
+      - step: "Verify height deleted"
+        action: "search"
+        model: "partner.height"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+        save_as: "gone_height"
+        expect_count: 0
+      - step: "Member creates weight"
+        action: "create"
+        model: "partner.weight"
+        as_user: "user_health"
+        save_as: "weight"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 60.0
+      - step: "Member writes weight"
+        action: "write"
+        target: "weight"
+        as_user: "user_health"
+        values:
+          value: 61.0
+      - step: "Assert weight updated"
+        action: "assert"
+        target: "weight"
+        asserts:
+          value:
+            type: "value"
+            expected: 61.0
+      - step: "Member unlinks weight"
+        action: "unlink"
+        target: "weight"
+        as_user: "user_health"
+      - step: "Verify weight deleted"
+        action: "search"
+        model: "partner.weight"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+        save_as: "gone_weight"
+        expect_count: 0
+      - step: "Member creates head_circumference"
+        action: "create"
+        model: "partner.head_circumference"
+        as_user: "user_health"
+        save_as: "head_circumference"
+        values:
+          partner_id: "REC: partner.id"
+          date: 2024-01-01
+          value: 40.0
+      - step: "Member writes head_circumference"
+        action: "write"
+        target: "head_circumference"
+        as_user: "user_health"
+        values:
+          value: 41.0
+      - step: "Assert head_circumference updated"
+        action: "assert"
+        target: "head_circumference"
+        asserts:
+          value:
+            type: "value"
+            expected: 41.0
+      - step: "Member unlinks head_circumference"
+        action: "unlink"
+        target: "head_circumference"
+        as_user: "user_health"
+      - step: "Verify head_circumference deleted"
+        action: "search"
+        model: "partner.head_circumference"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+        save_as: "gone_head_circumference"
+        expect_count: 0
+      - step: "Member creates allergy"
+        action: "create"
+        model: "partner.allergy"
+        as_user: "user_health"
+        save_as: "allergy"
+        values:
+          partner_id: "REC: partner.id"
+          allergen_id: "REC: allergen.id"
+          severity: "mild"
+      - step: "Member writes allergy"
+        action: "write"
+        target: "allergy"
+        as_user: "user_health"
+        values:
+          severity: "severe"
+      - step: "Assert allergy updated"
+        action: "assert"
+        target: "allergy"
+        asserts:
+          severity:
+            type: "value"
+            expected: "severe"
+      - step: "Member unlinks allergy"
+        action: "unlink"
+        target: "allergy"
+        as_user: "user_health"
+      - step: "Verify allergy deleted"
+        action: "search"
+        model: "partner.allergy"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+        save_as: "gone_allergy"
+        expect_count: 0
+      - step: "Member creates disease_history"
+        action: "create"
+        model: "partner.disease_history"
+        as_user: "user_health"
+        save_as: "disease_history"
+        values:
+          partner_id: "REC: partner.id"
+          disease_id: "REC: disease.id"
+          note: "initial"
+      - step: "Member writes disease_history"
+        action: "write"
+        target: "disease_history"
+        as_user: "user_health"
+        values:
+          note: "changed"
+      - step: "Assert disease_history updated"
+        action: "assert"
+        target: "disease_history"
+        asserts:
+          note:
+            type: "value"
+            expected: "changed"
+      - step: "Member unlinks disease_history"
+        action: "unlink"
+        target: "disease_history"
+        as_user: "user_health"
+      - step: "Verify disease_history deleted"
+        action: "search"
+        model: "partner.disease_history"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+        save_as: "gone_disease_history"
+        expect_count: 0
+      - step: "Member creates medication"
+        action: "create"
+        model: "partner.medication"
+        as_user: "user_health"
+        save_as: "medication"
+        values:
+          partner_id: "REC: partner.id"
+          medication_id: "REC: medication.id"
+          dose: "500mg"
+      - step: "Member writes medication"
+        action: "write"
+        target: "medication"
+        as_user: "user_health"
+        values:
+          dose: "750mg"
+      - step: "Assert medication updated"
+        action: "assert"
+        target: "medication"
+        asserts:
+          dose:
+            type: "value"
+            expected: "750mg"
+      - step: "Member unlinks medication"
+        action: "unlink"
+        target: "medication"
+        as_user: "user_health"
+      - step: "Verify medication deleted"
+        action: "search"
+        model: "partner.medication"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+        save_as: "gone_medication"
+        expect_count: 0
+      - step: "Member creates health_provider"
+        action: "create"
+        model: "partner.health_provider"
+        as_user: "user_health"
+        save_as: "health_provider"
+        values:
+          partner_id: "REC: partner.id"
+          provider_id: "REC: doctor.id"
+          note: "initial"
+      - step: "Member writes health_provider"
+        action: "write"
+        target: "health_provider"
+        as_user: "user_health"
+        values:
+          note: "changed"
+      - step: "Assert health_provider updated"
+        action: "assert"
+        target: "health_provider"
+        asserts:
+          note:
+            type: "value"
+            expected: "changed"
+      - step: "Member unlinks health_provider"
+        action: "unlink"
+        target: "health_provider"
+        as_user: "user_health"
+      - step: "Verify health_provider deleted"
+        action: "search"
+        model: "partner.health_provider"
+        domain:
+          - ["partner_id", "=", "REC: partner.id"]
+        save_as: "gone_health_provider"
+        expect_count: 0
+
+  - name: "Positive - Admin Is Member Of Group"
+    steps:
+      - step: "Get admin user"
+        action: "ref"
+        xml_id: "base.user_admin"
+        save_as: "admin_user"
+      - step: "Assert admin belongs to the group"
+        action: "assert"
+        target: "admin_user"
+        asserts:
+          groups_id:
+            type: "m2m"
+            check: "contains"
+            expected_records:
+              - "REC: health_group"
+
+  - name: "Config - No Ungrouped Or Internal Group ACL Remains"
+    steps:
+      - step: "No ACL without group"
+        action: "search"
+        model: "ir.model.access"
+        domain:
+          - [
+              "model_id.model",
+              "in",
+              [
+                "partner.height",
+                "partner.weight",
+                "partner.head_circumference",
+                "partner.allergy",
+                "partner.disease_history",
+                "partner.medication",
+                "partner.health_provider",
+              ],
+            ]
+          - ["group_id", "=", false]
+        save_as: "ungrouped_acl"
+        expect_count: 0
+      - step: "No ACL for internal user group"
+        action: "search"
+        model: "ir.model.access"
+        domain:
+          - [
+              "model_id.model",
+              "in",
+              [
+                "partner.height",
+                "partner.weight",
+                "partner.head_circumference",
+                "partner.allergy",
+                "partner.disease_history",
+                "partner.medication",
+                "partner.health_provider",
+              ],
+            ]
+          - ["group_id", "=", "REC: internal_group.id"]
+        save_as: "internal_acl"
+        expect_count: 0
+      - step: "Exactly one ACL per model for the health group"
+        action: "search"
+        model: "ir.model.access"
+        domain:
+          - [
+              "model_id.model",
+              "in",
+              [
+                "partner.height",
+                "partner.weight",
+                "partner.head_circumference",
+                "partner.allergy",
+                "partner.disease_history",
+                "partner.medication",
+                "partner.health_provider",
+              ],
+            ]
+          - ["group_id", "=", "REC: health_group.id"]
+        save_as: "health_acl"
+        expect_count: 7

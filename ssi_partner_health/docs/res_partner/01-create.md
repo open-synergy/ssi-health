@@ -7,7 +7,10 @@
 
 When this module is installed, the Contacts form gains a **Body Measurements** page
 (individual contacts only, i.e. **Individual** is selected instead of **Company**), with
-the following sections.
+the following sections. The page is only visible to users who belong to the **Partner
+Health** group (Health application category); users outside the group do not see the
+page and cannot read or edit any of the health data below. The administrator is a member
+of this group by default.
 
 - **Heights**: One or more height measurements over time. Optional — zero or more rows
   may be added. Each row has:

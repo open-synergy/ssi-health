@@ -3,9 +3,10 @@
      Copyright 2026 PT. Simetri Sinergi Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record id="partner_allergy_all_access" model="ir.model.access">
-        <field name="name">partner.allergy - all</field>
+    <record id="partner_allergy_user_access" model="ir.model.access">
+        <field name="name">partner.allergy - user</field>
         <field name="model_id" ref="model_partner_allergy" />
+        <field name="group_id" ref="partner_health_group" />
         <field name="perm_read" eval="1" />
         <field name="perm_write" eval="1" />
         <field name="perm_create" eval="1" />
