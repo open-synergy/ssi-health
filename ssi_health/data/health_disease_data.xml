@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="health_disease_agoraphobia" model="health.disease">
+        <field name="name">Agoraphobia</field>
+        <field name="code">AGORAPHOBIA</field>
+        <field name="category_id" ref="dsm5_anxiety" />
+    </record>
+
+    <record id="health_disease_gad" model="health.disease">
+        <field name="name">Generalized Anxiety Disorder</field>
+        <field name="code">GAD</field>
+        <field name="category_id" ref="dsm5_anxiety" />
+    </record>
+
+    <record id="health_disease_panic" model="health.disease">
+        <field name="name">Panic Disorder</field>
+        <field name="code">PANIC</field>
+        <field name="category_id" ref="dsm5_anxiety" />
+    </record>
+
+    <record id="health_disease_selectivemute" model="health.disease">
+        <field name="name">Selective Mutism</field>
+        <field name="code">SELECTIVEMUTE</field>
+        <field name="category_id" ref="dsm5_anxiety" />
+    </record>
+
+    <record id="health_disease_separationanx" model="health.disease">
+        <field name="name">Separation Anxiety Disorder</field>
+        <field name="code">SEPARATIONANX</field>
+        <field name="category_id" ref="dsm5_anxiety" />
+    </record>
+
+    <record id="health_disease_socialanx" model="health.disease">
+        <field name="name">Social Anxiety Disorder (Social Phobia)</field>
+        <field name="code">SOCIALANX</field>
+        <field name="category_id" ref="dsm5_anxiety" />
+    </record>
+
+    <record id="health_disease_specificphobia" model="health.disease">
+        <field name="name">Specific Phobia</field>
+        <field name="code">SPECIFICPHOBIA</field>
+        <field name="category_id" ref="dsm5_anxiety" />
+    </record>
+
+    <record id="health_disease_bipolar1" model="health.disease">
+        <field name="name">Bipolar I Disorder</field>
+        <field name="code">BIPOLAR1</field>
+        <field name="category_id" ref="dsm5_bipolar" />
+    </record>
+
+    <record id="health_disease_bipolar2" model="health.disease">
+        <field name="name">Bipolar II Disorder</field>
+        <field name="code">BIPOLAR2</field>
+        <field name="category_id" ref="dsm5_bipolar" />
+    </record>
+
+    <record id="health_disease_cyclothymic" model="health.disease">
+        <field name="name">Cyclothymic Disorder</field>
+        <field name="code">CYCLOTHYMIC</field>
+        <field name="category_id" ref="dsm5_bipolar" />
+    </record>
+
+    <record id="health_disease_dmdd" model="health.disease">
+        <field name="name">Disruptive Mood Dysregulation Disorder</field>
+        <field name="code">DMDD</field>
+        <field name="category_id" ref="dsm5_depressive" />
+    </record>
+
+    <record id="health_disease_dysthymia" model="health.disease">
+        <field name="name">Persistent Depressive Disorder (Dysthymia)</field>
+        <field name="code">DYSTHYMIA</field>
+        <field name="category_id" ref="dsm5_depressive" />
+    </record>
+
+    <record id="health_disease_mdd" model="health.disease">
+        <field name="name">Major Depressive Disorder</field>
+        <field name="code">MDD</field>
+        <field name="category_id" ref="dsm5_depressive" />
+    </record>
+
+    <record id="health_disease_pmdd" model="health.disease">
+        <field name="name">Premenstrual Dysphoric Disorder</field>
+        <field name="code">PMDD</field>
+        <field name="category_id" ref="dsm5_depressive" />
+    </record>
+
+    <record id="health_disease_cd" model="health.disease">
+        <field name="name">Conduct Disorder</field>
+        <field name="code">CD</field>
+        <field name="category_id" ref="dsm5_disruptive_conduct" />
+    </record>
+
+    <record id="health_disease_ied" model="health.disease">
+        <field name="name">Intermittent Explosive Disorder</field>
+        <field name="code">IED</field>
+        <field name="category_id" ref="dsm5_disruptive_conduct" />
+    </record>
+
+    <record id="health_disease_kleptomania" model="health.disease">
+        <field name="name">Kleptomania</field>
+        <field name="code">KLEPTOMANIA</field>
+        <field name="category_id" ref="dsm5_disruptive_conduct" />
+    </record>
+
+    <record id="health_disease_odd" model="health.disease">
+        <field name="name">Oppositional Defiant Disorder</field>
+        <field name="code">ODD</field>
+        <field name="category_id" ref="dsm5_disruptive_conduct" />
+    </record>
+
+    <record id="health_disease_pyromania" model="health.disease">
+        <field name="name">Pyromania</field>
+        <field name="code">PYROMANIA</field>
+        <field name="category_id" ref="dsm5_disruptive_conduct" />
+    </record>
+
+    <record id="health_disease_depersonalization" model="health.disease">
+        <field name="name">Depersonalization/Derealization Disorder</field>
+        <field name="code">DEPERSONALIZATION</field>
+        <field name="category_id" ref="dsm5_dissociative" />
+    </record>
+
+    <record id="health_disease_did" model="health.disease">
+        <field name="name">Dissociative Identity Disorder</field>
+        <field name="code">DID</field>
+        <field name="category_id" ref="dsm5_dissociative" />
+    </record>
+
+    <record id="health_disease_dissociativeamnesia" model="health.disease">
+        <field name="name">Dissociative Amnesia</field>
+        <field name="code">DISSOCIATIVEAMNESIA</field>
+        <field name="category_id" ref="dsm5_dissociative" />
+    </record>
+
+    <record id="health_disease_encopresis" model="health.disease">
+        <field name="name">Encopresis</field>
+        <field name="code">ENCOPRESIS</field>
+        <field name="category_id" ref="dsm5_elimination" />
+    </record>
+
+    <record id="health_disease_enuresis" model="health.disease">
+        <field name="name">Enuresis</field>
+        <field name="code">ENURESIS</field>
+        <field name="category_id" ref="dsm5_elimination" />
+    </record>
+
+    <record id="health_disease_anorexia" model="health.disease">
+        <field name="name">Anorexia Nervosa</field>
+        <field name="code">ANOREXIA</field>
+        <field name="category_id" ref="dsm5_feeding_eating" />
+    </record>
+
+    <record id="health_disease_arfid" model="health.disease">
+        <field name="name">Avoidant/Restrictive Food Intake Disorder</field>
+        <field name="code">ARFID</field>
+        <field name="category_id" ref="dsm5_feeding_eating" />
+    </record>
+
+    <record id="health_disease_bingeeating" model="health.disease">
+        <field name="name">Binge-Eating Disorder</field>
+        <field name="code">BINGEEATING</field>
+        <field name="category_id" ref="dsm5_feeding_eating" />
+    </record>
+
+    <record id="health_disease_bulimia" model="health.disease">
+        <field name="name">Bulimia Nervosa</field>
+        <field name="code">BULIMIA</field>
+        <field name="category_id" ref="dsm5_feeding_eating" />
+    </record>
+
+    <record id="health_disease_pica" model="health.disease">
+        <field name="name">Pica</field>
+        <field name="code">PICA</field>
+        <field name="category_id" ref="dsm5_feeding_eating" />
+    </record>
+
+    <record id="health_disease_rumination" model="health.disease">
+        <field name="name">Rumination Disorder</field>
+        <field name="code">RUMINATION</field>
+        <field name="category_id" ref="dsm5_feeding_eating" />
+    </record>
+
+    <record id="health_disease_gd_adoladult" model="health.disease">
+        <field name="name">Gender Dysphoria in Adolescents and Adults</field>
+        <field name="code">GD-ADOLADULT</field>
+        <field name="category_id" ref="dsm5_gender_dysphoria" />
+    </record>
+
+    <record id="health_disease_gd_child" model="health.disease">
+        <field name="name">Gender Dysphoria in Children</field>
+        <field name="code">GD-CHILD</field>
+        <field name="category_id" ref="dsm5_gender_dysphoria" />
+    </record>
+
+    <record id="health_disease_alzheimerncd" model="health.disease">
+        <field
+            name="name"
+        >Major/Mild Neurocognitive Disorder Due to Alzheimer's Disease</field>
+        <field name="code">ALZHEIMERNCD</field>
+        <field name="category_id" ref="dsm5_neurocognitive" />
+    </record>
+
+    <record id="health_disease_delirium" model="health.disease">
+        <field name="name">Delirium</field>
+        <field name="code">DELIRIUM</field>
+        <field name="category_id" ref="dsm5_neurocognitive" />
+    </record>
+
+    <record id="health_disease_majorncd" model="health.disease">
+        <field name="name">Major Neurocognitive Disorder</field>
+        <field name="code">MAJORNCD</field>
+        <field name="category_id" ref="dsm5_neurocognitive" />
+    </record>
+
+    <record id="health_disease_mildncd" model="health.disease">
+        <field name="name">Mild Neurocognitive Disorder</field>
+        <field name="code">MILDNCD</field>
+        <field name="category_id" ref="dsm5_neurocognitive" />
+    </record>
+
+    <record id="health_disease_adhd" model="health.disease">
+        <field name="name">Attention-Deficit/Hyperactivity Disorder</field>
+        <field name="code">ADHD</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_asd" model="health.disease">
+        <field name="name">Autism Spectrum Disorder</field>
+        <field name="code">ASD</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_dcd" model="health.disease">
+        <field name="name">Developmental Coordination Disorder</field>
+        <field name="code">DCD</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_intellectdis" model="health.disease">
+        <field
+            name="name"
+        >Intellectual Disability (Intellectual Developmental Disorder)</field>
+        <field name="code">INTELLECTDIS</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_langdis" model="health.disease">
+        <field name="name">Language Disorder</field>
+        <field name="code">LANGDIS</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_sld" model="health.disease">
+        <field name="name">Specific Learning Disorder</field>
+        <field name="code">SLD</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_speechsound" model="health.disease">
+        <field name="name">Speech Sound Disorder</field>
+        <field name="code">SPEECHSOUND</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_stutter" model="health.disease">
+        <field name="name">Childhood-Onset Fluency Disorder (Stuttering)</field>
+        <field name="code">STUTTER</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_tourette" model="health.disease">
+        <field name="name">Tourette's Disorder</field>
+        <field name="code">TOURETTE</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_bdd" model="health.disease">
+        <field name="name">Body Dysmorphic Disorder</field>
+        <field name="code">BDD</field>
+        <field name="category_id" ref="dsm5_obsessive_compulsive" />
+    </record>
+
+    <record id="health_disease_excoriation" model="health.disease">
+        <field name="name">Excoriation (Skin-Picking) Disorder</field>
+        <field name="code">EXCORIATION</field>
+        <field name="category_id" ref="dsm5_obsessive_compulsive" />
+    </record>
+
+    <record id="health_disease_hoarding" model="health.disease">
+        <field name="name">Hoarding Disorder</field>
+        <field name="code">HOARDING</field>
+        <field name="category_id" ref="dsm5_obsessive_compulsive" />
+    </record>
+
+    <record id="health_disease_ocd" model="health.disease">
+        <field name="name">Obsessive-Compulsive Disorder</field>
+        <field name="code">OCD</field>
+        <field name="category_id" ref="dsm5_obsessive_compulsive" />
+    </record>
+
+    <record id="health_disease_trichotillomania" model="health.disease">
+        <field name="name">Trichotillomania (Hair-Pulling Disorder)</field>
+        <field name="code">TRICHOTILLOMANIA</field>
+        <field name="category_id" ref="dsm5_obsessive_compulsive" />
+    </record>
+
+    <record id="health_disease_omd_medical" model="health.disease">
+        <field
+            name="name"
+        >Other Specified Mental Disorder Due to Another Medical Condition</field>
+        <field name="code">OMD-MEDICAL</field>
+        <field name="category_id" ref="dsm5_other_mental" />
+    </record>
+
+    <record id="health_disease_unspecifiedmd" model="health.disease">
+        <field name="name">Unspecified Mental Disorder</field>
+        <field name="code">UNSPECIFIEDMD</field>
+        <field name="category_id" ref="dsm5_other_mental" />
+    </record>
+
+    <record id="health_disease_exhibitionistic" model="health.disease">
+        <field name="name">Exhibitionistic Disorder</field>
+        <field name="code">EXHIBITIONISTIC</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_fetishistic" model="health.disease">
+        <field name="name">Fetishistic Disorder</field>
+        <field name="code">FETISHISTIC</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_frotteuristic" model="health.disease">
+        <field name="name">Frotteuristic Disorder</field>
+        <field name="code">FROTTEURISTIC</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_pedophilic" model="health.disease">
+        <field name="name">Pedophilic Disorder</field>
+        <field name="code">PEDOPHILIC</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_sexualmasochism" model="health.disease">
+        <field name="name">Sexual Masochism Disorder</field>
+        <field name="code">SEXUALMASOCHISM</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_sexualsadism" model="health.disease">
+        <field name="name">Sexual Sadism Disorder</field>
+        <field name="code">SEXUALSADISM</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_transvestic" model="health.disease">
+        <field name="name">Transvestic Disorder</field>
+        <field name="code">TRANSVESTIC</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_voyeuristic" model="health.disease">
+        <field name="name">Voyeuristic Disorder</field>
+        <field name="code">VOYEURISTIC</field>
+        <field name="category_id" ref="dsm5_paraphilic" />
+    </record>
+
+    <record id="health_disease_antisocialpd" model="health.disease">
+        <field name="name">Antisocial Personality Disorder</field>
+        <field name="code">ANTISOCIALPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_avoidantpd" model="health.disease">
+        <field name="name">Avoidant Personality Disorder</field>
+        <field name="code">AVOIDANTPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_borderlinepd" model="health.disease">
+        <field name="name">Borderline Personality Disorder</field>
+        <field name="code">BORDERLINEPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_dependentpd" model="health.disease">
+        <field name="name">Dependent Personality Disorder</field>
+        <field name="code">DEPENDENTPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_histrionicpd" model="health.disease">
+        <field name="name">Histrionic Personality Disorder</field>
+        <field name="code">HISTRIONICPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_narcissisticpd" model="health.disease">
+        <field name="name">Narcissistic Personality Disorder</field>
+        <field name="code">NARCISSISTICPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_ocpd" model="health.disease">
+        <field name="name">Obsessive-Compulsive Personality Disorder</field>
+        <field name="code">OCPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_paranoidpd" model="health.disease">
+        <field name="name">Paranoid Personality Disorder</field>
+        <field name="code">PARANOIDPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_schizoidpd" model="health.disease">
+        <field name="name">Schizoid Personality Disorder</field>
+        <field name="code">SCHIZOIDPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_schizotypalpd" model="health.disease">
+        <field name="name">Schizotypal Personality Disorder</field>
+        <field name="code">SCHIZOTYPALPD</field>
+        <field name="category_id" ref="dsm5_personality" />
+    </record>
+
+    <record id="health_disease_hypersomnia" model="health.disease">
+        <field name="name">Hypersomnolence Disorder</field>
+        <field name="code">HYPERSOMNIA</field>
+        <field name="category_id" ref="dsm5_sleep_wake" />
+    </record>
+
+    <record id="health_disease_insomnia" model="health.disease">
+        <field name="name">Insomnia Disorder</field>
+        <field name="code">INSOMNIA</field>
+        <field name="category_id" ref="dsm5_sleep_wake" />
+    </record>
+
+    <record id="health_disease_narcolepsy" model="health.disease">
+        <field name="name">Narcolepsy</field>
+        <field name="code">NARCOLEPSY</field>
+        <field name="category_id" ref="dsm5_sleep_wake" />
+    </record>
+
+    <record id="health_disease_nightmaredis" model="health.disease">
+        <field name="name">Nightmare Disorder</field>
+        <field name="code">NIGHTMAREDIS</field>
+        <field name="category_id" ref="dsm5_sleep_wake" />
+    </record>
+
+    <record id="health_disease_sleepapnea" model="health.disease">
+        <field name="name">Obstructive Sleep Apnea Hypopnea</field>
+        <field name="code">SLEEPAPNEA</field>
+        <field name="category_id" ref="dsm5_sleep_wake" />
+    </record>
+
+    <record id="health_disease_sleepwalking" model="health.disease">
+        <field
+            name="name"
+        >Non-Rapid Eye Movement Sleep Arousal Disorder (Sleepwalking Type)</field>
+        <field name="code">SLEEPWALKING</field>
+        <field name="category_id" ref="dsm5_sleep_wake" />
+    </record>
+
+    <record id="health_disease_conversion" model="health.disease">
+        <field
+            name="name"
+        >Conversion Disorder (Functional Neurological Symptom Disorder)</field>
+        <field name="code">CONVERSION</field>
+        <field name="category_id" ref="dsm5_somatic_symptom" />
+    </record>
+
+    <record id="health_disease_factitious" model="health.disease">
+        <field name="name">Factitious Disorder</field>
+        <field name="code">FACTITIOUS</field>
+        <field name="category_id" ref="dsm5_somatic_symptom" />
+    </record>
+
+    <record id="health_disease_illnessanxiety" model="health.disease">
+        <field name="name">Illness Anxiety Disorder</field>
+        <field name="code">ILLNESSANXIETY</field>
+        <field name="category_id" ref="dsm5_somatic_symptom" />
+    </record>
+
+    <record id="health_disease_somatic" model="health.disease">
+        <field name="name">Somatic Symptom Disorder</field>
+        <field name="code">SOMATIC</field>
+        <field name="category_id" ref="dsm5_somatic_symptom" />
+    </record>
+
+    <record id="health_disease_briefpsychotic" model="health.disease">
+        <field name="name">Brief Psychotic Disorder</field>
+        <field name="code">BRIEFPSYCHOTIC</field>
+        <field name="category_id" ref="dsm5_schizophrenia_spectrum" />
+    </record>
+
+    <record id="health_disease_delusional" model="health.disease">
+        <field name="name">Delusional Disorder</field>
+        <field name="code">DELUSIONAL</field>
+        <field name="category_id" ref="dsm5_schizophrenia_spectrum" />
+    </record>
+
+    <record id="health_disease_schizo" model="health.disease">
+        <field name="name">Schizophrenia</field>
+        <field name="code">SCHIZO</field>
+        <field name="category_id" ref="dsm5_schizophrenia_spectrum" />
+    </record>
+
+    <record id="health_disease_schizoaff" model="health.disease">
+        <field name="name">Schizoaffective Disorder</field>
+        <field name="code">SCHIZOAFF</field>
+        <field name="category_id" ref="dsm5_schizophrenia_spectrum" />
+    </record>
+
+    <record id="health_disease_schizophreniform" model="health.disease">
+        <field name="name">Schizophreniform Disorder</field>
+        <field name="code">SCHIZOPHRENIFORM</field>
+        <field name="category_id" ref="dsm5_schizophrenia_spectrum" />
+    </record>
+
+    <record id="health_disease_alcoholud" model="health.disease">
+        <field name="name">Alcohol Use Disorder</field>
+        <field name="code">ALCOHOLUD</field>
+        <field name="category_id" ref="dsm5_substance_related" />
+    </record>
+
+    <record id="health_disease_cannabisud" model="health.disease">
+        <field name="name">Cannabis Use Disorder</field>
+        <field name="code">CANNABISUD</field>
+        <field name="category_id" ref="dsm5_substance_related" />
+    </record>
+
+    <record id="health_disease_gambling" model="health.disease">
+        <field name="name">Gambling Disorder</field>
+        <field name="code">GAMBLING</field>
+        <field name="category_id" ref="dsm5_substance_related" />
+    </record>
+
+    <record id="health_disease_opioidud" model="health.disease">
+        <field name="name">Opioid Use Disorder</field>
+        <field name="code">OPIOIDUD</field>
+        <field name="category_id" ref="dsm5_substance_related" />
+    </record>
+
+    <record id="health_disease_stimulantud" model="health.disease">
+        <field name="name">Stimulant Use Disorder</field>
+        <field name="code">STIMULANTUD</field>
+        <field name="category_id" ref="dsm5_substance_related" />
+    </record>
+
+    <record id="health_disease_tobaccoud" model="health.disease">
+        <field name="name">Tobacco Use Disorder</field>
+        <field name="code">TOBACCOUD</field>
+        <field name="category_id" ref="dsm5_substance_related" />
+    </record>
+
+    <record id="health_disease_delayedejaculation" model="health.disease">
+        <field name="name">Delayed Ejaculation</field>
+        <field name="code">DELAYEDEJACULATION</field>
+        <field name="category_id" ref="dsm5_sexual_dysfunctions" />
+    </record>
+
+    <record id="health_disease_erectiledis" model="health.disease">
+        <field name="name">Erectile Disorder</field>
+        <field name="code">ERECTILEDIS</field>
+        <field name="category_id" ref="dsm5_sexual_dysfunctions" />
+    </record>
+
+    <record id="health_disease_femaleorgasmic" model="health.disease">
+        <field name="name">Female Orgasmic Disorder</field>
+        <field name="code">FEMALEORGASMIC</field>
+        <field name="category_id" ref="dsm5_sexual_dysfunctions" />
+    </record>
+
+    <record id="health_disease_fsiad" model="health.disease">
+        <field name="name">Female Sexual Interest/Arousal Disorder</field>
+        <field name="code">FSIAD</field>
+        <field name="category_id" ref="dsm5_sexual_dysfunctions" />
+    </record>
+
+    <record id="health_disease_gpppd" model="health.disease">
+        <field name="name">Genito-Pelvic Pain/Penetration Disorder</field>
+        <field name="code">GPPPD</field>
+        <field name="category_id" ref="dsm5_sexual_dysfunctions" />
+    </record>
+
+    <record id="health_disease_mhsdd" model="health.disease">
+        <field name="name">Male Hypoactive Sexual Desire Disorder</field>
+        <field name="code">MHSDD</field>
+        <field name="category_id" ref="dsm5_sexual_dysfunctions" />
+    </record>
+
+    <record id="health_disease_prematureejac" model="health.disease">
+        <field name="name">Premature (Early) Ejaculation</field>
+        <field name="code">PREMATUREEJAC</field>
+        <field name="category_id" ref="dsm5_sexual_dysfunctions" />
+    </record>
+
+    <record id="health_disease_acutestress" model="health.disease">
+        <field name="name">Acute Stress Disorder</field>
+        <field name="code">ACUTESTRESS</field>
+        <field name="category_id" ref="dsm5_trauma_stressor" />
+    </record>
+
+    <record id="health_disease_adjustment" model="health.disease">
+        <field name="name">Adjustment Disorder</field>
+        <field name="code">ADJUSTMENT</field>
+        <field name="category_id" ref="dsm5_trauma_stressor" />
+    </record>
+
+    <record id="health_disease_dsed" model="health.disease">
+        <field name="name">Disinhibited Social Engagement Disorder</field>
+        <field name="code">DSED</field>
+        <field name="category_id" ref="dsm5_trauma_stressor" />
+    </record>
+
+    <record id="health_disease_ptsd" model="health.disease">
+        <field name="name">Post-Traumatic Stress Disorder</field>
+        <field name="code">PTSD</field>
+        <field name="category_id" ref="dsm5_trauma_stressor" />
+    </record>
+
+    <record id="health_disease_rad" model="health.disease">
+        <field name="name">Reactive Attachment Disorder</field>
+        <field name="code">RAD</field>
+        <field name="category_id" ref="dsm5_trauma_stressor" />
+    </record>
+
+    <record id="health_disease_j45" model="health.disease">
+        <field name="name">Asthma</field>
+        <field name="code">J45</field>
+        <field name="category_id" ref="icd10_resp" />
+    </record>
+
+    <record id="health_disease_j30" model="health.disease">
+        <field name="name">Allergic Rhinitis</field>
+        <field name="code">J30</field>
+        <field name="category_id" ref="icd10_resp" />
+    </record>
+
+    <record id="health_disease_g40" model="health.disease">
+        <field name="name">Epilepsy</field>
+        <field name="code">G40</field>
+        <field name="category_id" ref="icd10_neuro" />
+    </record>
+
+    <record id="health_disease_g43" model="health.disease">
+        <field name="name">Migraine</field>
+        <field name="code">G43</field>
+        <field name="category_id" ref="icd10_neuro" />
+    </record>
+
+    <record id="health_disease_g80" model="health.disease">
+        <field name="name">Cerebral Palsy</field>
+        <field name="code">G80</field>
+        <field name="category_id" ref="icd10_neuro" />
+    </record>
+
+    <record id="health_disease_e10" model="health.disease">
+        <field name="name">Type 1 Diabetes Mellitus</field>
+        <field name="code">E10</field>
+        <field name="category_id" ref="icd10_endo" />
+    </record>
+
+    <record id="health_disease_e11" model="health.disease">
+        <field name="name">Type 2 Diabetes Mellitus</field>
+        <field name="code">E11</field>
+        <field name="category_id" ref="icd10_endo" />
+    </record>
+
+    <record id="health_disease_e03" model="health.disease">
+        <field name="name">Hypothyroidism</field>
+        <field name="code">E03</field>
+        <field name="category_id" ref="icd10_endo" />
+    </record>
+
+    <record id="health_disease_e66" model="health.disease">
+        <field name="name">Obesity</field>
+        <field name="code">E66</field>
+        <field name="category_id" ref="icd10_endo" />
+    </record>
+
+    <record id="health_disease_d50" model="health.disease">
+        <field name="name">Iron Deficiency Anaemia</field>
+        <field name="code">D50</field>
+        <field name="category_id" ref="icd10_blood" />
+    </record>
+
+    <record id="health_disease_d56" model="health.disease">
+        <field name="name">Thalassaemia</field>
+        <field name="code">D56</field>
+        <field name="category_id" ref="icd10_blood" />
+    </record>
+
+    <record id="health_disease_d55_0" model="health.disease">
+        <field name="name">G6PD Deficiency</field>
+        <field name="code">D55.0</field>
+        <field name="category_id" ref="icd10_blood" />
+    </record>
+
+    <record id="health_disease_d66" model="health.disease">
+        <field name="name">Haemophilia A</field>
+        <field name="code">D66</field>
+        <field name="category_id" ref="icd10_blood" />
+    </record>
+
+    <record id="health_disease_d69_3" model="health.disease">
+        <field name="name">Immune Thrombocytopenic Purpura</field>
+        <field name="code">D69.3</field>
+        <field name="category_id" ref="icd10_blood" />
+    </record>
+
+    <record id="health_disease_q24_9" model="health.disease">
+        <field name="name">Congenital Heart Disease</field>
+        <field name="code">Q24.9</field>
+        <field name="category_id" ref="icd10_circ" />
+    </record>
+
+    <record id="health_disease_i09_9" model="health.disease">
+        <field name="name">Rheumatic Heart Disease</field>
+        <field name="code">I09.9</field>
+        <field name="category_id" ref="icd10_circ" />
+    </record>
+
+    <record id="health_disease_l20" model="health.disease">
+        <field name="name">Atopic Dermatitis (Eczema)</field>
+        <field name="code">L20</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_k90_0" model="health.disease">
+        <field name="name">Coeliac Disease</field>
+        <field name="code">K90.0</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_k21" model="health.disease">
+        <field name="name">Gastro-Oesophageal Reflux Disease</field>
+        <field name="code">K21</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_n04" model="health.disease">
+        <field name="name">Nephrotic Syndrome</field>
+        <field name="code">N04</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_m08" model="health.disease">
+        <field name="name">Juvenile Idiopathic Arthritis</field>
+        <field name="code">M08</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_m41" model="health.disease">
+        <field name="name">Scoliosis</field>
+        <field name="code">M41</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_a15" model="health.disease">
+        <field name="name">Tuberculosis (under treatment)</field>
+        <field name="code">A15</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_b18_1" model="health.disease">
+        <field name="name">Chronic Hepatitis B</field>
+        <field name="code">B18.1</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_h52_1" model="health.disease">
+        <field name="name">Myopia</field>
+        <field name="code">H52.1</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_h90" model="health.disease">
+        <field name="name">Hearing Loss</field>
+        <field name="code">H90</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_q90" model="health.disease">
+        <field name="name">Down Syndrome</field>
+        <field name="code">Q90</field>
+        <field name="category_id" ref="icd10_other" />
+    </record>
+
+    <record id="health_disease_spcd" model="health.disease">
+        <field name="name">Social (Pragmatic) Communication Disorder</field>
+        <field name="code">SPCD</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_ticmotorvocal" model="health.disease">
+        <field name="name">Persistent (Chronic) Motor or Vocal Tic Disorder</field>
+        <field name="code">TICMOTORVOCAL</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_ticprovisional" model="health.disease">
+        <field name="name">Provisional Tic Disorder</field>
+        <field name="code">TICPROVISIONAL</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+
+    <record id="health_disease_stereotypic" model="health.disease">
+        <field name="name">Stereotypic Movement Disorder</field>
+        <field name="code">STEREOTYPIC</field>
+        <field name="category_id" ref="dsm5_neurodevelopmental" />
+    </record>
+</odoo>

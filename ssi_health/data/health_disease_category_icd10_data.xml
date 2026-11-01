@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="icd10_resp" model="health.disease_category">
+        <field name="name">Chronic Respiratory Conditions (ICD-10 J)</field>
+        <field name="code">ICD-RESP</field>
+    </record>
+
+    <record id="icd10_neuro" model="health.disease_category">
+        <field name="name">Chronic Neurological Conditions (ICD-10 G)</field>
+        <field name="code">ICD-NEURO</field>
+    </record>
+
+    <record id="icd10_endo" model="health.disease_category">
+        <field name="name">Endocrine and Metabolic Conditions (ICD-10 E)</field>
+        <field name="code">ICD-ENDO</field>
+    </record>
+
+    <record id="icd10_blood" model="health.disease_category">
+        <field name="name">Blood and Immune Disorders (ICD-10 D50-D89)</field>
+        <field name="code">ICD-BLOOD</field>
+    </record>
+
+    <record id="icd10_circ" model="health.disease_category">
+        <field name="name">Heart and Circulatory Conditions (ICD-10 I/Q2)</field>
+        <field name="code">ICD-CIRC</field>
+    </record>
+
+    <record id="icd10_other" model="health.disease_category">
+        <field name="name">Other Chronic Physical Conditions (ICD-10)</field>
+        <field name="code">ICD-OTHER</field>
+    </record>
+</odoo>

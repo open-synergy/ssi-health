@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="health_medication_r03ac02" model="health.medication">
+        <field name="name">Salbutamol (inhaler)</field>
+        <field name="code">R03AC02</field>
+    </record>
+
+    <record id="health_medication_r03ba02" model="health.medication">
+        <field name="name">Budesonide (inhaler)</field>
+        <field name="code">R03BA02</field>
+    </record>
+
+    <record id="health_medication_r03ba05" model="health.medication">
+        <field name="name">Fluticasone (inhaler)</field>
+        <field name="code">R03BA05</field>
+    </record>
+
+    <record id="health_medication_r03dc03" model="health.medication">
+        <field name="name">Montelukast</field>
+        <field name="code">R03DC03</field>
+    </record>
+
+    <record id="health_medication_c01ca24" model="health.medication">
+        <field name="name">Epinephrine / Adrenaline (auto-injector)</field>
+        <field name="code">C01CA24</field>
+    </record>
+
+    <record id="health_medication_r06ae07" model="health.medication">
+        <field name="name">Cetirizine</field>
+        <field name="code">R06AE07</field>
+    </record>
+
+    <record id="health_medication_r06ax13" model="health.medication">
+        <field name="name">Loratadine</field>
+        <field name="code">R06AX13</field>
+    </record>
+
+    <record id="health_medication_a10a" model="health.medication">
+        <field name="name">Insulin</field>
+        <field name="code">A10A</field>
+    </record>
+
+    <record id="health_medication_a10ba02" model="health.medication">
+        <field name="name">Metformin</field>
+        <field name="code">A10BA02</field>
+    </record>
+
+    <record id="health_medication_h04aa01" model="health.medication">
+        <field name="name">Glucagon</field>
+        <field name="code">H04AA01</field>
+    </record>
+
+    <record id="health_medication_n03ag01" model="health.medication">
+        <field name="name">Valproic Acid</field>
+        <field name="code">N03AG01</field>
+    </record>
+
+    <record id="health_medication_n03ax14" model="health.medication">
+        <field name="name">Levetiracetam</field>
+        <field name="code">N03AX14</field>
+    </record>
+
+    <record id="health_medication_n03af01" model="health.medication">
+        <field name="name">Carbamazepine</field>
+        <field name="code">N03AF01</field>
+    </record>
+
+    <record id="health_medication_n03ab02" model="health.medication">
+        <field name="name">Phenytoin</field>
+        <field name="code">N03AB02</field>
+    </record>
+
+    <record id="health_medication_n05ba01" model="health.medication">
+        <field name="name">Diazepam (rectal)</field>
+        <field name="code">N05BA01</field>
+    </record>
+
+    <record id="health_medication_n05cd08" model="health.medication">
+        <field name="name">Midazolam (buccal/nasal)</field>
+        <field name="code">N05CD08</field>
+    </record>
+
+    <record id="health_medication_n06ba04" model="health.medication">
+        <field name="name">Methylphenidate</field>
+        <field name="code">N06BA04</field>
+    </record>
+
+    <record id="health_medication_n06ba09" model="health.medication">
+        <field name="name">Atomoxetine</field>
+        <field name="code">N06BA09</field>
+    </record>
+
+    <record id="health_medication_n05ax08" model="health.medication">
+        <field name="name">Risperidone</field>
+        <field name="code">N05AX08</field>
+    </record>
+
+    <record id="health_medication_h03aa01" model="health.medication">
+        <field name="name">Levothyroxine</field>
+        <field name="code">H03AA01</field>
+    </record>
+
+    <record id="health_medication_n02be01" model="health.medication">
+        <field name="name">Paracetamol</field>
+        <field name="code">N02BE01</field>
+    </record>
+
+    <record id="health_medication_m01ae01" model="health.medication">
+        <field name="name">Ibuprofen</field>
+        <field name="code">M01AE01</field>
+    </record>
+
+    <record id="health_medication_b03aa07" model="health.medication">
+        <field name="name">Ferrous Sulfate (iron)</field>
+        <field name="code">B03AA07</field>
+    </record>
+
+    <record id="health_medication_b03bb01" model="health.medication">
+        <field name="name">Folic Acid</field>
+        <field name="code">B03BB01</field>
+    </record>
+
+    <record id="health_medication_v03ac03" model="health.medication">
+        <field name="name">Deferasirox</field>
+        <field name="code">V03AC03</field>
+    </record>
+
+    <record id="health_medication_a02bc01" model="health.medication">
+        <field name="name">Omeprazole</field>
+        <field name="code">A02BC01</field>
+    </record>
+
+    <record id="health_medication_h02ab07" model="health.medication">
+        <field name="name">Prednisone</field>
+        <field name="code">H02AB07</field>
+    </record>
+
+    <record id="health_medication_j04ac01" model="health.medication">
+        <field name="name">Isoniazid</field>
+        <field name="code">J04AC01</field>
+    </record>
+
+    <record id="health_medication_j04ab02" model="health.medication">
+        <field name="name">Rifampicin</field>
+        <field name="code">J04AB02</field>
+    </record>
+</odoo>

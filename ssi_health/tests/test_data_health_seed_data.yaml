@@ -1,0 +1,157 @@
+scenarios:
+  - name: "Seed disease samples"
+    steps:
+      - step: "Get the ICD-10 asthma record"
+        action: "ref"
+        xml_id: "ssi_health.health_disease_j45"
+        save_as: "asthma"
+      - step: "Asthma has the standard code, name and category"
+        action: "assert"
+        target: "asthma"
+        asserts:
+          code:
+            type: "value"
+            expected: "J45"
+          name:
+            type: "value"
+            expected: "Asthma"
+          category_id:
+            type: "m2o"
+            expected_xml_id: "ssi_health.icd10_resp"
+      - step: "Get the ICD-10 G6PD record with a dotted code"
+        action: "ref"
+        xml_id: "ssi_health.health_disease_d55_0"
+        save_as: "g6pd"
+      - step: "G6PD deficiency keeps the dotted code"
+        action: "assert"
+        target: "g6pd"
+        asserts:
+          code:
+            type: "value"
+            expected: "D55.0"
+          category_id:
+            type: "m2o"
+            expected_xml_id: "ssi_health.icd10_blood"
+      - step: "Get a DSM-5 record"
+        action: "ref"
+        xml_id: "ssi_health.health_disease_adhd"
+        save_as: "adhd"
+      - step: "ADHD is under the DSM-5 neurodevelopmental class"
+        action: "assert"
+        target: "adhd"
+        asserts:
+          code:
+            type: "value"
+            expected: "ADHD"
+          category_id:
+            type: "m2o"
+            expected_xml_id: "ssi_health.dsm5_neurodevelopmental"
+
+  - name: "Seed allergen and medication samples"
+    steps:
+      - step: "Get the peanut allergen"
+        action: "ref"
+        xml_id: "ssi_health.health_allergen_peanut"
+        save_as: "peanut"
+      - step: "Peanut allergen is under the food category"
+        action: "assert"
+        target: "peanut"
+        asserts:
+          code:
+            type: "value"
+            expected: "PEANUT"
+          name:
+            type: "value"
+            expected: "Peanut"
+          category_id:
+            type: "m2o"
+            expected_xml_id: "ssi_health.allergen_category_food"
+      - step: "Get the salbutamol medication"
+        action: "ref"
+        xml_id: "ssi_health.health_medication_r03ac02"
+        save_as: "salbutamol"
+      - step: "Salbutamol has the WHO ATC code"
+        action: "assert"
+        target: "salbutamol"
+        asserts:
+          code:
+            type: "value"
+            expected: "R03AC02"
+          name:
+            type: "value"
+            expected: "Salbutamol (inhaler)"
+
+  - name: "Seed record counts"
+    steps:
+      - step: "Respiratory ICD-10 category has 2 diseases"
+        action: "search"
+        model: "health.disease"
+        domain: [["category_id.code", "=", "ICD-RESP"]]
+        save_as: "icd_resp"
+        expect_count: 2
+      - step: "Neurological ICD-10 category has 3 diseases"
+        action: "search"
+        model: "health.disease"
+        domain: [["category_id.code", "=", "ICD-NEURO"]]
+        save_as: "icd_neuro"
+        expect_count: 3
+      - step: "Endocrine ICD-10 category has 4 diseases"
+        action: "search"
+        model: "health.disease"
+        domain: [["category_id.code", "=", "ICD-ENDO"]]
+        save_as: "icd_endo"
+        expect_count: 4
+      - step: "Blood ICD-10 category has 5 diseases"
+        action: "search"
+        model: "health.disease"
+        domain: [["category_id.code", "=", "ICD-BLOOD"]]
+        save_as: "icd_blood"
+        expect_count: 5
+      - step: "Circulatory ICD-10 category has 2 diseases"
+        action: "search"
+        model: "health.disease"
+        domain: [["category_id.code", "=", "ICD-CIRC"]]
+        save_as: "icd_circ"
+        expect_count: 2
+      - step: "Other ICD-10 category has 11 diseases"
+        action: "search"
+        model: "health.disease"
+        domain: [["category_id.code", "=", "ICD-OTHER"]]
+        save_as: "icd_other"
+        expect_count: 11
+      - step: "Module ships 134 seed diseases"
+        action: "search"
+        model: "ir.model.data"
+        domain:
+          - ["module", "=", "ssi_health"]
+          - ["model", "=", "health.disease"]
+        save_as: "seed_diseases"
+        expect_count: 134
+      - step: "Module ships 31 seed allergens"
+        action: "search"
+        model: "ir.model.data"
+        domain:
+          - ["module", "=", "ssi_health"]
+          - ["model", "=", "health.allergen"]
+        save_as: "seed_allergens"
+        expect_count: 31
+      - step: "Module ships 29 seed medications"
+        action: "search"
+        model: "ir.model.data"
+        domain:
+          - ["module", "=", "ssi_health"]
+          - ["model", "=", "health.medication"]
+        save_as: "seed_medications"
+        expect_count: 29
+
+  - name: "Seed code is unique"
+    steps:
+      - step: "A disease with the seed code J45 is rejected"
+        action: "create"
+        model: "health.disease"
+        expect_error:
+          type: "UserError"
+          message_contains: "Dupilicate code"
+        values:
+          name: "Duplicate Asthma"
+          code: "J45"
