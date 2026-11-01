@@ -16,6 +16,7 @@
         "web_tour",
     ],
     "data": [
+        "security/res_groups/partner_health.xml",
         "security/ir_model_access/partner_height.xml",
         "security/ir_model_access/partner_weight.xml",
         "security/ir_model_access/partner_head_circumference.xml",

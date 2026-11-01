@@ -13,6 +13,7 @@
                 <page
                     name="body_measurement"
                     string="Body Measurements"
+                    groups="ssi_partner_health.partner_health_group"
                     attrs="{'invisible': [('is_company', '=', True)]}"
                 >
                     <separator name="height" string="Height" />

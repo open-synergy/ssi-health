@@ -10,6 +10,11 @@ Stores the anthropometric measurement history (height, weight, and head
 circumference) of a contact, with the latest value of each always
 available as a stored field on the contact.
 
+Health data (measurements, allergies, disease history, medications and
+health providers) is restricted to members of the *Partner Health* group.
+The *Body Measurements* page on the contact form is only shown to members of
+that group. The administrator is a member by default.
+
 
 Installation
 ============
